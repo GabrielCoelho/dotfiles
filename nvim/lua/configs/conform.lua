@@ -1,15 +1,33 @@
-local options = {
-  formatters_by_ft = {
-    lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
-  },
+return {
+  "stevearc/conform.nvim",
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    local conform = require "configs.conform"
 
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+    conform.setup {
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        lua = { "stylua" },
+        html = { "prettier" },
+        css = { "prettier" },
+        markdown = { "prettier" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+      },
+      format_on_save = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      },
+    }
+
+    vim.keymap.set({ "n", "v" }, "<leader>sm", function()
+      conform.format {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      }
+    end, { desc = "Format file or range (in visual mode)" })
+  end,
 }
-
-require("conform").setup(options)
