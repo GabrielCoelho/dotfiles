@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     config = function()
       require "configs.conform"
     end,
@@ -48,12 +48,60 @@ return {
   {
     "simrat39/rust-tools.nvim",
   },
+  -- Obsidian
   {
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-path",
-  }
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "Second Brain",
+          path = "~/Documentos/Anotações",
+        },
+      },
+    },
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "~/Documentos/Anotações/2. Areas/Diário Interesticial/",
+      -- Optional, if you want to change the date format for the ID of daily notes.
+      date_format = "%Y-%m-%d",
+      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+      template = "dia.md",
+    },
+    completion = {
+      -- Set to false to disable completion.
+      nvim_cmp = true,
+      -- Trigger completion at 2 chars.
+      min_chars = 2,
+    },
+    new_notes_location = "~/Documentos/Anotações/0. Inbox/",
+    templates = {
+      folder = "~/Documentos/Anotações/3. Resources/Templates",
+      date_format = "%Y-%m-%d",
+      time_format = "%H:%M",
+      -- A map for custom variables, the key should be the variable and the value a function
+      substitutions = {},
+    },
+    picker = {
+      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
+      name = "telescope.nvim",
+      -- Optional, configure key mappings for the picker. These are the defaults.
+      -- Not all pickers support all mappings.
+      mappings = {
+        -- Create a new note from your query.
+        new = "<C-x>",
+        -- Insert a link to the selected note.
+        insert_link = "<C-l>",
+      },
+    },
+  },
+  {
+    require("base46").toggle_transparency(),
+  },
 }
