@@ -9,6 +9,10 @@ return {
       markdown = { "prettier" },
       c = { "clang_format" },
       cpp = { "clang_format" },
+      rust = { "ast_grep" },
+      java = { "ast_grep" },
+      go = { "ast_grep" },
+      python = { "ast_grep" },
     },
     format_on_save = {
       lsp_fallback = true,
