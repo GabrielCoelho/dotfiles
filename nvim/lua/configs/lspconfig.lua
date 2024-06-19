@@ -14,6 +14,7 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- Specific LSP setups
 -- typescript
 lspconfig.tsserver.setup {
   on_attach = on_attach,
@@ -28,6 +29,7 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
+-- Rust
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -41,9 +43,3 @@ lspconfig.rust_analyzer.setup {
     },
   },
 }
-
--- lspconfig.eslint_lsp.setup({
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = {"javascript", "html", "css", "javascriptreact", "vuejs"},
--- })
