@@ -7,6 +7,7 @@ return {
       c = { "trivy", "cpplint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
+      rust = { "ast_grep" },
     }
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
