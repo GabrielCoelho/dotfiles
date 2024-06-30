@@ -1,6 +1,7 @@
 require "nvchad.mappings"
 -- Getting the maps and other plugins
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 -- local tel = require "nvchad.configs.telescope"
 -- Mapping
 map("n", ";", ":", { desc = "CMD enter command mode" })
@@ -28,7 +29,19 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "telescope find all files" }
 )
-
+nomap("n", "<leader>ff")
+nomap("n", "<leader>fa")
+nomap("n", "<leader>fb")
+nomap("n", "<leader>fh")
+nomap("n", "<leader>fm")
+nomap("n", "<leader>fo")
+nomap("n", "<leader>fw")
+nomap("n", "<leader>fz")
+nomap("n", "<leader>ma")
+nomap("n", "<leader>cm")
+nomap("n", "<leader>gt")
+nomap("n", "<leader>pt")
+--
 -- noice
 map("n", "<leader>di", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
