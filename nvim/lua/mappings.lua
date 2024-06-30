@@ -6,10 +6,8 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("i", "kj", "<ESC>")
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+map("n", "<S-h>", "<S-h>zz")
+map("n", "<S-l>", "<S-l>zz")
 map("n", "<leader>tt", require("base46").toggle_transparency, { desc = "Toggle transparency" })
 
 -- Telescope
@@ -30,4 +28,8 @@ map(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
   { desc = "telescope find all files" }
 )
+
+-- noice
+map("n", "<leader>di", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
+
 -- cmap({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
