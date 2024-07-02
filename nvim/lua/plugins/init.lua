@@ -62,17 +62,17 @@ return {
       workspaces = {
         {
           name = "Second Brain",
-          path = "~/Documentos/Anotações",
+          path = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/",
         },
       },
     },
     daily_notes = {
       -- Optional, if you keep daily notes in a separate directory.
-      folder = "~/Documentos/Anotações/2. Areas/Diário Interesticial/",
+      folder = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/2. Areas/Diário Interesticial/",
       -- Optional, if you want to change the date format for the ID of daily notes.
       date_format = "%Y-%m-%d",
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = "dia.md",
+      template = "Dia.md",
     },
     completion = {
       -- Set to false to disable completion.
@@ -80,9 +80,9 @@ return {
       -- Trigger completion at 2 chars.
       min_chars = 2,
     },
-    new_notes_location = "~/Documentos/Anotações/0. Inbox/",
+    new_notes_location = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/0. Inbox/",
     templates = {
-      folder = "~/Documentos/Anotações/3. Resources/Templates",
+      folder = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/3. Recursos/Included Files and Images/Modelos/",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
       -- A map for custom variables, the key should be the variable and the value a function
@@ -116,24 +116,24 @@ return {
       },
       presets = { lsp_doc_border = true },
       lsp = {
- -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            -- override the default lsp markdown formatter with Noice
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            -- override the lsp markdown formatter with Noice
-            ["vim.lsp.util.stylize_markdown"] = true,
-            -- override cmp documentation with Noice (needs the other options to work)
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = { enabled = false }, -- <-- HERE!
-          signature = { enabled = false }, -- <-- HERE!
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          -- override the default lsp markdown formatter with Noice
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          -- override the lsp markdown formatter with Noice
+          ["vim.lsp.util.stylize_markdown"] = true,
+          -- override cmp documentation with Noice (needs the other options to work)
+          ["cmp.entry.get_documentation"] = true,
+        },
+        hover = { enabled = false }, -- <-- HERE!
+        signature = { enabled = false }, -- <-- HERE!
       },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
     },
-   },
+  },
   {
     "hrsh7th/cmp-cmdline",
   },
