@@ -85,6 +85,21 @@ return {
       folder = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/3. Recursos/Included Files and Images/Modelos/",
       date_format = "%Y-%m-%d",
       time_format = "%H:%M",
+      mappings = {
+        ["gf"] = {
+          action = function ()
+            return require("obsidian").util.gf_passtrough()
+          end,
+          opts = { noremap = false, expr = true, buffer = true },
+        },
+      },
+      picker = {
+        name = "telescope.nvim",
+        mappings = {
+          new = "<C-S-n>",
+          insert_link = ";k",
+        },
+      },
       -- A map for custom variables, the key should be the variable and the value a function
       substitutions = {},
     },
