@@ -14,6 +14,7 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.api.nvim_set_option("updatetime", 300)
 vim.opt.relativenumber = true
+vim.opt.conceallevel = 2
 
 require("telescope").load_extension "noice"
 

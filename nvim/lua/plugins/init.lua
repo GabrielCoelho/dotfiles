@@ -62,32 +62,32 @@ return {
       workspaces = {
         {
           name = "Second Brain",
-          path = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/",
+          path = "~/vaults/my_brain/",
         },
       },
-    },
-    daily_notes = {
-      -- Optional, if you keep daily notes in a separate directory.
-      folder = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/2. Areas/Diário Interesticial/",
-      -- Optional, if you want to change the date format for the ID of daily notes.
-      date_format = "%Y-%m-%d",
-      -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-      template = "Dia.md",
-    },
-    completion = {
-      -- Set to false to disable completion.
-      nvim_cmp = true,
-      -- Trigger completion at 2 chars.
-      min_chars = 2,
-    },
-    new_notes_location = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/0. Inbox/",
-    templates = {
-      folder = "~/gbcoeAToutlook.com.br/1. Projetos/Segundo Cérebro/3. Recursos/Included Files and Images/Modelos/",
-      date_format = "%Y-%m-%d",
-      time_format = "%H:%M",
+      daily_notes = {
+        -- Optional, if you keep daily notes in a separate directory.
+        folder = "2. Areas/Diário Interesticial/",
+        -- Optional, if you want to change the date format for the ID of daily notes.
+        date_format = "%Y-%m-%d",
+        -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+        template = "Dia.md",
+      },
+      completion = {
+        -- Set to false to disable completion.
+        nvim_cmp = true,
+        -- Trigger completion at 2 chars.
+        min_chars = 2,
+      },
+      new_notes_location = "0. Inbox/",
+      templates = {
+        folder = "3. Recursos/Included Files and Images/Modelos/",
+        date_format = "%Y-%m-%d",
+        time_format = "%H:%M",
+      },
       mappings = {
         ["gf"] = {
-          action = function ()
+          action = function()
             return require("obsidian").util.gf_passtrough()
           end,
           opts = { noremap = false, expr = true, buffer = true },
@@ -99,20 +99,6 @@ return {
           new = "<C-S-n>",
           insert_link = ";k",
         },
-      },
-      -- A map for custom variables, the key should be the variable and the value a function
-      substitutions = {},
-    },
-    picker = {
-      -- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
-      name = "telescope.nvim",
-      -- Optional, configure key mappings for the picker. These are the defaults.
-      -- Not all pickers support all mappings.
-      mappings = {
-        -- Create a new note from your query.
-        new = "<C-x>",
-        -- Insert a link to the selected note.
-        insert_link = "<C-l>",
       },
     },
   },
@@ -147,6 +133,12 @@ return {
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
+    },
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      background_colour = "#000000",
     },
   },
   {

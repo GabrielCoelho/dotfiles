@@ -44,6 +44,14 @@ lspconfig.rust_analyzer.setup {
   },
 }
 
+-- Markdown
+lspconfig.marksman.setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  filetypes = { "markdown" },
+}
+
 -- cmdline setup
 local cmp = require "cmp"
 cmp.setup.cmdline("/", {
