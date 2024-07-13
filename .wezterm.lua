@@ -5,7 +5,7 @@ config.window_frame = {
 	font = wt.font({ family = "Monaspace Xenon" }),
 	font_size = 9.5,
 }
-config.window_background_image = ".bg_wez.jpg"
+config.window_background_image = ".bg_wez.png"
 config.window_background_opacity = 0.789898
 config.default_cursor_style = "SteadyBlock"
 config.enable_kitty_keyboard = true
