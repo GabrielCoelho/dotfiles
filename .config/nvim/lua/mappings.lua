@@ -10,6 +10,7 @@ map("i", "kj", "<ESC>")
 map("n", "<S-h>", "<S-h>zz")
 map("n", "<S-l>", "<S-l>zz")
 map("n", "<leader>tt", require("base46").toggle_transparency, { desc = "Toggle transparency" })
+map("n", "<leader>tq", require("base46").toggle_transparency, { desc = "Toggle transparency" })
 
 -- Telescope
 map("n", "<leader>os", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
