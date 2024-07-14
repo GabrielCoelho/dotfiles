@@ -1,10 +1,8 @@
 local wt = require("wezterm")
 local config = wt.config_builder()
 config.color_scheme = "Gruvbox Dark (Gogh)"
-config.window_frame = {
-	font = wt.font({ family = "Monaspace Xenon" }),
-	font_size = 9.5,
-}
+config.font = wt.font("Monaspace Xenon")
+config.font_size = 9.5
 config.default_cursor_style = "SteadyBlock"
 config.enable_kitty_keyboard = true
 config.enable_tab_bar = false

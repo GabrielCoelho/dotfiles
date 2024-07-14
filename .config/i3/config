@@ -9,8 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
 exec "setxkbmap -model pc105 -layout br -variant dvorak"
+set $mod Mod4
 bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +1%
 bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 1%-
 bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:46.9 -t 5700:3600 -g 0.8 -m randr -v
