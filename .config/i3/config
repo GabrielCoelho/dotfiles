@@ -11,6 +11,9 @@
 
 set $mod Mod4
 exec "setxkbmap -model pc105 -layout br -variant dvorak"
+bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +5%
+bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 5%-
+bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:46.9 -t 5700:3600 -g 0.8 -m randr -v
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,6 +34,7 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+set $i3lockwall i3lock -i ~/.bg_wez.png -t 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -115,11 +119,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "default"
-set $ws2 "configs"
-set $ws3 "web"
-set $ws4 "folders"
-set $ws5 "mail"
+set $ws1 "1: default"
+set $ws2 "2: configs"
+set $ws3 "3: web"
+set $ws4 "4: folders"
+set $ws5 "5: mail"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -155,7 +159,24 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# shutdown / restart / suspend...
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $i3lockwall, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Ctrl+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+BackSpace mode "$mode_system"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -187,5 +208,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status
+  position top
+  output primary
+  tray_output none
+  separator_symbol "|"
 }
