@@ -40,7 +40,7 @@ config.window_background_gradient = {
 	-- Specifies the interpolation style to be used.
 	-- "Linear", "Basis" and "CatmullRom" as supported.
 	-- The default is "Linear".
-	interpolation = "Linear",
+	interpolation = "CatmullRom",
 
 	-- How the colors are blended in the gradient.
 	-- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
