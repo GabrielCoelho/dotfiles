@@ -12,8 +12,6 @@ set $mod Mod4
 bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +1%
 bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 1%-
 bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:-46.9 -t 5700:3600 -g 0.8 -m randr -v
-exec "setxkbmap -model pc105 -layout br -variant dvorak"
-set $i3lockwall i3lock -i ~/.bg_wez.png -t 
 
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -164,7 +162,7 @@ bindsym $mod+Shift+r restart
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
 
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $i3lockwall, mode "default"
+    bindsym l exec --no-startup-id i3lock -i ~/.bg_wez.png -t, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $i3lockwall && systemctl hibernate, mode "default"
@@ -223,3 +221,4 @@ bar {
   }
 }
 focus_follows_mouse no
+exec_always --no-startup-id sleep 5; bash $HOME/.keybd_configure.sh 
