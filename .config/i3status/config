@@ -10,6 +10,7 @@ order += "cpu_usage"
 order += "memory"
 order += "ipv6"
 order += "wireless wlp3s0"
+order += "volume master"
 order += "tztime local"
 
 disk "/" {
@@ -17,21 +18,26 @@ disk "/" {
 }
 
 cpu_usage {
-  format = "CPU_0: %cpu0 CPU_1: %cpu1"
+  format = "%cpu0:%cpu1"
   degraded_threshold = 65
   max_threshold = 90
 }
 
 memory {
   memory_used_method = classical
-  format = "Mem: %used/%total"
+  format = "Mem:%used/%total"
 }
 
 wireless wlp3s0 {
-  format_up = "WLS: (%quality at %essid) %ip"
+  format_up = "%quality at %essid, %bitrate / %frequency:%ip"
   format_down = "No WLS connection"
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+  format = "%Y-%m-%d %H:%M:%S"
+}
+
+volume master {
+  format = "♪: %volume"
+  device = "default"
 }

@@ -10,3 +10,14 @@ end
 # alias for neovim
 alias nvim "/bin/nvim.appimage"
 alias neovim "/bin/nvim.appimage"
+
+function fish_greeting
+echo "                            _         _"
+echo " _ __   ___  ___  ___ ___  | |_ ___  (_)_ __  ___ _   _ _ __ ___"
+echo "| '_ \ / _ \/ __|/ __/ _ \ | __/ _ \ | | '_ \/ __| | | | '_ ` _ \\"
+echo "| | | | (_) \__ \ (_|  __/ | ||  __/ | | |_) \__ \ |_| | | | | | |"
+echo "|_| |_|\___/|___/\___\___|  \__\___| |_| .__/|___/\__,_|_| |_| |_|"
+echo "                                       |_|"
+end
+
+
