@@ -11,7 +11,7 @@
 set $mod Mod4
 bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +1%
 bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 1%-
-bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:46.9 -t 5700:3600 -g 0.8 -m randr -v
+bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:-46.9 -t 5700:3600 -g 0.8 -m randr -v
 exec "setxkbmap -model pc105 -layout br -variant dvorak"
 set $i3lockwall i3lock -i ~/.bg_wez.png -t 
 
@@ -127,7 +127,7 @@ set $ws5 "5: mail"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
+set $ws9 "9: Second Brain"
 set $ws10 "10"
 
 # switch to workspace
@@ -212,6 +212,14 @@ bar {
   position top
   output primary
   tray_output none
-  separator_symbol "|"
+  separator_symbol "||"
+  colors { 
+    separator #83a598
+    background #282828
+    statusline #a89984
+    active_workspace #b16286 #d3869b #ebdbb2
+    inactive_workspace #8ec07c #689d6a #1d2021
+    focused_workspace #d79921 #fabd2f #1d2021
+  }
 }
 focus_follows_mouse no
