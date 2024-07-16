@@ -11,7 +11,8 @@
 set $mod Mod4
 bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +1%
 bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 1%-
-bindsym $mod+Mod1+b exec --no-startup-id gammastep -l -22.4:-46.9 -t 5700:3600 -g 0.8 -m randr -v
+bindsym $mod+Mod1+n exec --no-startup-id gammastep -P -r -O 3000
+bindsym $mod+Mod1+d exec --no-startup-id gammastep -P -r -O 4500
 
 set $i3lockwall i3lock -i ~/.bg_wez.png -t 
 
