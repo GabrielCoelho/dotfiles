@@ -24,6 +24,20 @@ font pango:Monaspace Krypton 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+# Color Scheme for windows 
+set $border #d65d0e
+set $bgcolor #282828 
+set $in-bgcolor #1d2021 
+set $text #ebdbb2 
+set $u-bgcolor #cc241d
+set $indicator #a89984
+set $in-text #bdae93
+
+#                       border          background      text            indicator (a line which shows where the next window will be placed)     
+client.focused          $border        $border        #3c3836           $indicator
+client.unfocused        $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.focused_inactive $in-bgcolor     $in-bgcolor     $in-text        $in-bgcolor
+client.urgent           $u-bgcolor      $u-bgcolor      $text           $u-bgcolor
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -71,7 +85,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+h focus right
+bindsym $mod+h focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

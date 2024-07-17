@@ -25,11 +25,10 @@ config.window_background_gradient = {
 	-- Accepts CSS style color specs, from named colors, through rgb
 	-- strings and more
 	colors = {
-		"#000",
-		"#010203",
-		"#1d2021",
+		"#282828",
 		"#282828",
 		"#32302f",
+		"#3c3836",
 	},
 
 	-- Instead of specifying `colors`, you can use one of a number of
@@ -40,12 +39,12 @@ config.window_background_gradient = {
 	-- Specifies the interpolation style to be used.
 	-- "Linear", "Basis" and "CatmullRom" as supported.
 	-- The default is "Linear".
-	interpolation = "CatmullRom",
+	interpolation = "Linear",
 
 	-- How the colors are blended in the gradient.
 	-- "Rgb", "LinearRgb", "Hsv" and "Oklab" are supported.
 	-- The default is "Rgb".
-	blend = "Hsv",
+	blend = "LinearRgb",
 
 	-- To avoid vertical color banding for horizontal gradients, the
 	-- gradient position is randomly shifted by up to the `noise` value
