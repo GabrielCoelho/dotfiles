@@ -62,7 +62,7 @@ return {
       workspaces = {
         {
           name = "Second Brain",
-          path = "~/vaults/my_brain/",
+          path = "~/.vaults/my_brain/",
         },
       },
       daily_notes = {
