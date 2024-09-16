@@ -64,7 +64,7 @@ config.window_background_gradient = {
 	-- segment_smoothness = 0.0,
 }
 -- config.window_background_image = ".bg_wez.jpg"
-config.window_background_opacity = 0.9
+--config.window_background_opacity = 0.9
 -- Spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
 return config
