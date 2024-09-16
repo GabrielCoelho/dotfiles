@@ -1,6 +1,6 @@
 local wt = require("wezterm")
 local config = wt.config_builder()
-config.color_scheme = "Gruvbox Dark (Gogh)"
+config.color_scheme = "Gruvbox (Gogh)"
 config.font = wt.font("MonaspiceXe Nerd Font")
 config.font_size = 9.5
 config.default_cursor_style = "SteadyBlock"
@@ -25,10 +25,9 @@ config.window_background_gradient = {
 	-- Accepts CSS style color specs, from named colors, through rgb
 	-- strings and more
 	colors = {
-		"#282828",
-		"#282828",
-		"#32302f",
-		"#3c3836",
+		"#f2e5bc",
+		--	"#fbf1c7",
+		--		"#f9f5d7",
 	},
 
 	-- Instead of specifying `colors`, you can use one of a number of
