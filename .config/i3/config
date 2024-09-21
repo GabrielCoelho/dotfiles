@@ -136,12 +136,12 @@ bindsym $mod+a focus parent
 set $ws1 "1: default"
 set $ws2 "2: configs"
 set $ws3 "3: web"
-set $ws4 "4: folders"
-set $ws5 "5: mail"
+set $ws4 "4: mail"
+set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: Second Brain"
+set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
@@ -200,16 +200,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 2 px or 2 ppt
+        bindsym k resize grow height 2 px or 2 ppt
+        bindsym j resize shrink height 2 px or 2 ppt
+        bindsym l resize grow width 2 px or 2 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -218,6 +218,16 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+## Screenshots
+bindsym Print exec --no-startup-id maim "~/3. Recursos/Imagens/Screenshots/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "~/3. Recursos/Imagens/Screenshots/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "~/3. Recursos/Imagens/Screenshots/$(date)"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
