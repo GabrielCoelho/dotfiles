@@ -245,5 +245,25 @@ bar {
     focused_workspace #d79921 #fabd2f #1d2021
   }
 }
+
+set $mouseMover mouse 
+bindsym $mod+m mode "$mouseMover"
+mode "$mouseMover" {
+  bindsym i mode "default"
+  bindsym Mod1+m mode "default"
+  bindsym Escape mode "default"
+
+  bindsym x exec --no-startup-id xdotool click 1
+  bindsym d exec --no-startup-id xdotool click 3 
+
+  bindsym h exec --no-startup-id xdotool mousemove_relative -- -10 0 
+  bindsym j exec --no-startup-id xdotool mousemove_relative 0 10 
+  bindsym k exec --no-startup-id xdotool mousemove_relative 0 -10
+  bindsym l exec --no-startup-id xdotool mousemove_relative 10 0
+
+}
+
+
+
 focus_follows_mouse no
 exec_always --no-startup-id sleep 5; bash $HOME/.keybd_configure.sh 
