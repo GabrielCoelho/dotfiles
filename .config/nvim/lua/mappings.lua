@@ -1,4 +1,9 @@
 require "nvchad.mappings"
+
+local harpoon = require "harpoon"
+-- REQUIRED
+harpoon:setup()
+-- REQUIRED
 -- Getting the maps and other plugins
 local map = vim.keymap.set
 local nomap = vim.keymap.del
@@ -51,3 +56,34 @@ nomap("n", "<leader>pt")
 map("n", "<leader>di", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 -- cmap({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+--
+
+-- harpoon
+
+vim.keymap.set("n", "<leader>aa", function()
+  harpoon:list():add()
+end, { desc = "Add a buffer to harpoon" })
+vim.keymap.set("n", "<leader>ae", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "List all harpoons" })
+
+vim.keymap.set("n", "<leader>ag", function()
+  harpoon:list():select(1)
+end, { desc = "Select harpoon 1" })
+vim.keymap.set("n", "<leader>ac", function()
+  harpoon:list():select(2)
+end, { desc = "Select harpoon 2" })
+vim.keymap.set("n", "<leader>ar", function()
+  harpoon:list():select(3)
+end, { desc = "Select harpoon 3" })
+vim.keymap.set("n", "<leader>al", function()
+  harpoon:list():select(4)
+end, { desc = "Select harpoon 4" })
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<leader>ap", function()
+  harpoon:list():prev()
+end, { desc = "Previous Harpoon" })
+vim.keymap.set("n", "<leader>an", function()
+  harpoon:list():next()
+end, { desc = "Next Harpoon" })

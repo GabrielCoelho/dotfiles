@@ -4,8 +4,11 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.ui = {
+M.base46 = {
   theme = "gruvbox_light",
+}
+
+M.ui = {
   statusline = {
     theme = "minimal",
     separator_style = "round",
@@ -22,7 +25,7 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "flat_dark",
+    style = "flat_light",
   },
   telescope = {
     style = "bordered",

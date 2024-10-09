@@ -144,4 +144,9 @@ return {
   {
     "hrsh7th/cmp-cmdline",
   },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim", "telescope.nvim" },
+  },
 }
