@@ -86,7 +86,7 @@ return {
         time_format = "%H:%M",
       },
       mappings = {
-        ["gf"] = {
+        ["go"] = {
           action = function()
             return require("obsidian").util.gf_passtrough()
           end,
