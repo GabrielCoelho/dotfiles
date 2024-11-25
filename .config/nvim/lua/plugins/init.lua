@@ -79,7 +79,7 @@ return {
         -- Trigger completion at 2 chars.
         min_chars = 0,
       },
-      new_notes_location = "0. Inbox/",
+      new_notes_location = "~/.vaults/my_brain/0. Inbox/",
       templates = {
         folder = "3. Recursos/Included Files and Images/Modelos/",
         date_format = "%Y-%m-%d",
