@@ -4,7 +4,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 local util = require "lspconfig/util"
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "eslint", "yamlls" }
+local servers = { "html", "cssls", "eslint", "yamlls", "sqlls" }
 -- lsps with default config
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -43,24 +43,3 @@ lspconfig.marksman.setup {
   capabilities = capabilities,
   filetypes = { "markdown" },
 }
-
--- cmdline setup
-local cmp = require "cmp"
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = { { name = "buffer" } },
-})
-
-cmp.setup.cmdline(";", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    {
-      name = "cmdline",
-      option = {
-        ignore_cmds = { "Man", "!" },
-      },
-    },
-  }),
-})

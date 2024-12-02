@@ -13,6 +13,7 @@ return {
       java = { "ast_grep" },
       go = { "ast_grep" },
       python = { "ast_grep" },
+      sql = { "sql_formatter" },
     },
     format_on_save = {
       lsp_fallback = true,
