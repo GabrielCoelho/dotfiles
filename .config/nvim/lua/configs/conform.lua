@@ -10,7 +10,7 @@ return {
       c = { "clang_format" },
       cpp = { "clang_format" },
       rust = { "ast_grep" },
-      java = { "ast_grep" },
+      java = { "google_java_format", "ast_grep" },
       go = { "ast_grep" },
       python = { "ast_grep" },
       sql = { "sql_formatter" },
