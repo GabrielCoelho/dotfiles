@@ -16,8 +16,6 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.opt.relativenumber = true
 vim.opt.conceallevel = 2
 
-require("telescope").load_extension "noice"
-
 -- Fixed column for diagnostics to appear
 -- Show autodiagnostic popup on cursor hover_range
 -- Goto previous / next diagnostic warning / error

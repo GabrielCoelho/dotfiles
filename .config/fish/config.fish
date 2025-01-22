@@ -8,8 +8,8 @@ if type -q exa
 end
 
 # alias for neovim
-alias nvim "/bin/nvim.appimage"
-alias neovim "/bin/nvim.appimage"
+#alias nvim "/bin/nvim.appimage"
+#alias neovim "/bin/nvim.appimage"
 
 function fish_greeting
 echo "                            _         _"
@@ -28,3 +28,4 @@ function y
 	end
 	rm -f -- "$tmp"
 end
+set PATH $HOME/.cargo/bin $PATH

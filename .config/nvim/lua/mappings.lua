@@ -52,8 +52,6 @@ nomap("n", "<leader>cm")
 nomap("n", "<leader>gt")
 nomap("n", "<leader>pt")
 --
--- noice
-map("n", "<leader>di", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 -- cmap({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
