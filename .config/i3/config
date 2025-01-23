@@ -28,6 +28,8 @@ font pango: Monaspace Xenon 10
 # set the mod key to the winkey:
 set $mod Mod4
 
+exec --no-startup-id setxkbmap motiondvorak
+
 #####################
 # workspace layout: #
 #####################
