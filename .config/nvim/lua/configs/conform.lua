@@ -6,7 +6,7 @@ return {
       lua = { "stylua" },
       html = { "prettier" },
       css = { "prettier" },
-      markdown = { "prettier" },
+      markdown = { "marksman", "mdformat" },
       c = { "clang_format" },
       cpp = { "clang_format" },
       rust = { "ast_grep" },
