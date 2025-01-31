@@ -204,12 +204,15 @@ bindsym F1 exec --no-startup-id ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec --no-startup-id xed ~/.config/i3/keybindings
 
 # Backlight control
-#bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
-#bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+# bindsym $mod+Mod1+s exec --no-startup-id xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
+# bindsym $mod+Mod1+h exec --no-startup-id xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
 # Backlight setting using dunst osc
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
-
+# bindsym $mod+Mod1+s exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
+# bindsym $mod+Mod1+h exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
+bindsym $mod+Mod1+s exec --no-startup-id brightnessctl set +1% && notify-send "Brightness up"
+bindsym $mod+Mod1+h exec --no-startup-id brightnessctl set 1%- && notify-send "Brightness down"
+bindsym $mod+Mod1+n exec --no-startup-id gammastep -P -r -O 3000 && notify-send "Night Mode - Blue light filter"
+bindsym $mod+Mod1+d exec --no-startup-id gammastep -P -r -O 4500 && notify-send "Day Mode"
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -267,8 +270,8 @@ bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3/scripts/empty_workspace
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 # use meta keys showing osc using dunst
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+bindsym $mod+Mod1+g exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym $mod+Mod1+c exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # gradular volume control
 bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
@@ -278,6 +281,7 @@ bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Mast
 #bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && killall -USR1 i3blocks
 # use meta keys showing osc using dunst
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+bindsym $mod+Mod1+f exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
 # mic mute toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
@@ -515,7 +519,7 @@ bar {
 		font pango: MonaspiceKr Nerd Font 10
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    	position top
-#	    	i3bar_command i3bar --transparency
+	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
 		    #tray_output primary
