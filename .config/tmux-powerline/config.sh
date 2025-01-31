@@ -38,8 +38,8 @@
 
 	# Uncomment these if you want to enable tmux bindings for muting (hiding) one of the status bars.
 	# E.g. this example binding would mute the left status bar when pressing <prefix> followed by Ctrl-[
-	#export TMUX_POWERLINE_MUTE_LEFT_KEYBINDING="C-["
-	#export TMUX_POWERLINE_MUTE_RIGHT_KEYBINDING="C-]"
+	export TMUX_POWERLINE_MUTE_LEFT_KEYBINDING="C-t"
+	export TMUX_POWERLINE_MUTE_RIGHT_KEYBINDING="C-n"
 # }
 
 # air.sh {
@@ -219,7 +219,7 @@
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_NORMAL_MODE_TEXT_COLOR=""
 	# Prefix mode text & color overrides. Defaults to "prefix" & the segment foreground color set in the theme used.
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_PREFIX_MODE_TEXT="prefix"
-	export TMUX_POWERLINE_SEG_MODE_INDICATOR_PREFIX_MODE_TEXT_COLOR=""
+	export TMUX_POWERLINE_SEG_MODE_INDICATOR_PREFIX_MODE_TEXT_COLOR="220"
 	# Whether the mouse mode section should be enabled. Should be {"true, "false"}.
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_MOUSE_MODE_ENABLED="true"
 	# Mouse mode text & color overrides. Defaults to "mouse" & the segment foreground color set in the theme used.
@@ -229,7 +229,7 @@
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_ENABLED="true"
 	# Copy mode text & color overrides. Defaults to "copy" & the segment foreground color set in the theme used.
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_TEXT="copy"
-	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_TEXT_COLOR=""
+	export TMUX_POWERLINE_SEG_MODE_INDICATOR_COPY_MODE_TEXT_COLOR="180"
 	# Suspend mode text & color overrides. Defaults to "SUSPEND" & the segment foreground color set in the theme used.
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_SUSPEND_MODE_TEXT="SUSPEND"
 	export TMUX_POWERLINE_SEG_MODE_INDICATOR_SUSPEND_MODE_TEXT_COLOR=""
@@ -351,11 +351,11 @@
 
 # vcs_compare.sh {
 	# Symbol if local branch is behind.
-	# export TMUX_POWERLINE_SEG_VCS_COMPARE_AHEAD_SYMBOL="↑ "
+	export TMUX_POWERLINE_SEG_VCS_COMPARE_AHEAD_SYMBOL="↑ "
 	# Symbol colour if local branch is ahead. Defaults to "current segment foreground colour"
 	# export TMUX_POWERLINE_SEG_VCS_COMPARE_AHEAD_SYMBOL_COLOUR=""
 	# Symbol if local branch is ahead.
-	# export TMUX_POWERLINE_SEG_VCS_COMPARE_BEHIND_SYMBOL="↓ "
+	export TMUX_POWERLINE_SEG_VCS_COMPARE_BEHIND_SYMBOL="↓ "
 	# Symbol colour if local branch is behind. Defaults to "current segment foreground colour"
 	# export TMUX_POWERLINE_SEG_VCS_COMPARE_BEHIND_SYMBOL_COLOUR=""
 # }
@@ -378,7 +378,7 @@
 
 # vcs_staged.sh {
 	# Symbol for count of staged vcs files.
-	# export TMUX_POWERLINE_SEG_VCS_STAGED_SYMBOL="⊕ "
+	export TMUX_POWERLINE_SEG_VCS_STAGED_SYMBOL="⊕ "
 # }
 
 # vpn.sh {
