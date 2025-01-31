@@ -2,7 +2,7 @@ local wt = require("wezterm")
 local config = wt.config_builder()
 config.color_scheme = "Gruvbox Dark (Gogh)"
 config.font = wt.font("MonaspiceXe Nerd Font")
-config.font_size = 9.5
+config.font_size = 10
 config.default_cursor_style = "SteadyBlock"
 config.enable_kitty_keyboard = true
 config.enable_tab_bar = false
@@ -64,7 +64,7 @@ config.window_background_gradient = {
 	-- segment_smoothness = 0.0,
 }
 -- config.window_background_image = ".bg_wez.jpg"
---config.window_background_opacity = 0.9
+config.window_background_opacity = 0.87
 -- Spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
 return config
