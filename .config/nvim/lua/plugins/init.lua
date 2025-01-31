@@ -78,17 +78,17 @@ return {
       },
       daily_notes = {
         -- Optional, if you keep daily notes in a separate directory.
-        folder = "2. Areas/Diário Interesticial/",
+        folder = "2. Areas/Diário Intersticial/",
         -- Optional, if you want to change the date format for the ID of daily notes.
         date_format = "%Y-%m-%d",
         -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-        template = "Dia.md",
+        template = "3. Recursos/Included Files and Images/Modelos/Dia.md",
       },
       completion = {
         -- Set to false to disable completion.
         nvim_cmp = true,
         -- Trigger completion at 2 chars.
-        min_chars = 0,
+        min_chars = 2,
       },
       new_notes_location = "0. Inbox/",
       templates = {
@@ -111,6 +111,7 @@ return {
           -- insert_link = ";k",
         },
       },
+      disable_frontmatter = true,
     },
   },
 }
