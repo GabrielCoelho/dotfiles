@@ -17,10 +17,10 @@
 	export TMUX_POWERLINE_DIR_USER_SEGMENTS="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/segments"
 
 	# The initial visibility of the status bar. Can be {"on", "off", "2"}. 2 will create two status lines: one for the window list and one with status bar segments. 
-	export TMUX_POWERLINE_STATUS_VISIBILITY="on"
+	export TMUX_POWERLINE_STATUS_VISIBILITY="2"
 	# In case of visibility = 2, where to display window status and where left/right status bars.
 	# 0: window status top, left/right status bottom; 1: window status bottom, left/right status top
-	export TMUX_POWERLINE_WINDOW_STATUS_LINE=0
+	export TMUX_POWERLINE_WINDOW_STATUS_LINE=1
 	# The status bar refresh interval in seconds.
 	# Note that events that force-refresh the status bar (such as window renaming) will ignore this.
 	export TMUX_POWERLINE_STATUS_INTERVAL="1"
@@ -31,10 +31,10 @@
 	# The maximum length of the left status bar.
 	export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
 	# The maximum length of the right status bar.
-	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="90"
+	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="60"
 
 	# The separator to use between windows on the status bar.
-	export TMUX_POWERLINE_WINDOW_STATUS_SEPARATOR=""
+	export TMUX_POWERLINE_WINDOW_STATUS_SEPARATOR="--"
 
 	# Uncomment these if you want to enable tmux bindings for muting (hiding) one of the status bars.
 	# E.g. this example binding would mute the left status bar when pressing <prefix> followed by Ctrl-[
@@ -419,8 +419,8 @@
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
 	# Your location
 	# Latitude and Longtitude for use with yr.no
-	TMUX_POWERLINE_SEG_WEATHER_LAT=""
-	TMUX_POWERLINE_SEG_WEATHER_LON=""
+	TMUX_POWERLINE_SEG_WEATHER_LAT="-22.33790"
+	TMUX_POWERLINE_SEG_WEATHER_LON="-46.94868"
 # }
 
 # xkb_layout.sh {
