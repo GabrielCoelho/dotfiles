@@ -103,9 +103,10 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info 0 15 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
+		"tmux_session_info 0 15"
 		# "hostname 0 15 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}"
 		"date 0 3 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}"
+		"time 0 15"
 		"mode_indicator 90 15"
 		# "ifstat 30 255"
 		# "ifstat_sys 30 255"
@@ -127,7 +128,7 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		"pwd 10 0"
 		# "macos_notification_count 29 255"
 		#"mailcount 9 255"
-		# "now_playing 234 37"
+		"now_playing 234 37"
 		#"cpu 240 136"
 		#"load 237 167"
 		#"tmux_mem_cpu_load 234 136"
@@ -137,7 +138,6 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		#"rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
 		"xkb_layout 0 130"
 		# "date_day 0 15"
-		# "time 0 15 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 		#"utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 	)
 fi

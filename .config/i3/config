@@ -298,7 +298,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 ## App shortcuts
 # bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 # bindsym $mod+n exec --no-startup-id /usr/bin/thunar
-bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym Print exec --no-startup-id scrot ~/3. Resources/Imagens/screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/3. Resources/Imagens/screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 # bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
@@ -312,10 +312,10 @@ bindsym Print exec --no-startup-id scrot ~/%Y-%m-%d-%T-screenshot.png && notify-
 set $ws1 "1:"
 set $ws2 "2:"
 set $ws3 "3:"
-set $ws4 "4:"
+set $ws4 "4:󰗰"
 set $ws5 "5:"
-set $ws6 "6"
-set $ws7 "7"
+set $ws6 "6:󰧑"
+set $ws7 "7:󱎓"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -599,3 +599,9 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
+
+# Tmux initialization 
+exec --no-startup-id tmux new -d -s main -n second-brain -c ~/0.\ vaults/my_brain/
+exec --no-startup-id tmux neww -n configs
+exec --no-startup-id tmux neww -n dev
+exec --no-startup-id tmux neww -n yazi
