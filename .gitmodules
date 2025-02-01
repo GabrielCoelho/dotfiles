@@ -1,0 +1,3 @@
+[submodule ".config/espanso/test"]
+	path = .config/espanso/match
+	url = git@github.com:GabrielCoelho/espanso-matches.git
