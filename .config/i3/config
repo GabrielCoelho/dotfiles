@@ -332,7 +332,7 @@ assign [class="org.wezfurlong.wezterm"] $ws1
 assign [class="zen"] $ws2
 # assign [class="Thunar"] $ws3
 assign [class="thunderbird"] $ws4
-# assign [class="TelegramDesktop"] $ws5
+assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 # for_window [class=Xfce4-terminal] focus
