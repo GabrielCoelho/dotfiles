@@ -17,7 +17,7 @@ M.ui = {
   },
   icons = {
     ft = "",
-    lazy = "",
+    lazy = "",
     loaded = "",
     not_loaded = "",
     cwd = "",
@@ -25,7 +25,7 @@ M.ui = {
   cmp = {
     icons = true,
     lspkind_text = true,
-    style = "flat_light",
+    style = "flat_dark",
   },
   telescope = {
     style = "bordered",

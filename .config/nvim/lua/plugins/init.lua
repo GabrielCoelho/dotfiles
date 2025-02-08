@@ -24,7 +24,4 @@ return {
   {
     require("base46").toggle_transparency(),
   },
-  {
-    "hrsh7th/cmp-cmdline",
-  },
 }

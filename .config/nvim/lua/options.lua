@@ -1,5 +1,5 @@
 require "nvchad.options"
-
+require "configs.nvim-dapconfig"
 local o = vim.o
 o.cursorlineopt = "both" -- to enable cursorline!
 

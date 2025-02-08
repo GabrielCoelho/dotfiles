@@ -32,7 +32,7 @@ map("n", "<leader>og", "<cmd>Telescope git_commits<CR>", { desc = "telescope git
 map("n", "<leader>op", "<cmd>Telescope git_status<CR>", { desc = "telescope git status" })
 map("n", "<leader>ot", "<cmd>Telescope terms<CR>", { desc = "telescope pick hidden term" })
 map("n", "<leader>th", "<cmd>Telescope themes<CR>", { desc = "telescope nvchad themes" })
-map("n", "<leader>ok", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+map("n", "<leader>ok", "<cmd>Telescope find_files hidden=true<cr>", { desc = "telescope find files" })
 map(
   "n",
   "<leader>oa",
@@ -52,6 +52,17 @@ nomap("n", "<leader>cm")
 nomap("n", "<leader>gt")
 nomap("n", "<leader>pt")
 --
+
+-- NVIM - DAP
+
+map("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", { desc = "Toggle Breakpoint" })
+map("n", "<leader>dc", "<cmd>DapContinue<CR>", { desc = "Start/Continue Debugging" })
+map("n", "<leader>di", "<cmd>DapStepInto<CR>", { desc = "Step Into" })
+map("n", "<leader>do", "<cmd>DapStepOver<CR>", { desc = "Step Over" })
+map("n", "<leader>dO", "<cmd>DapStepOut<CR>", { desc = "Step Out" })
+map("n", "<leader>dr", "<cmd>DapReplOpen<CR>", { desc = "Open REPL" })
+map("n", "<leader>dl", "<cmd>DapRunLast<CR>", { desc = "Run Last" })
+map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle UI" })
 
 -- cmap({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 --
