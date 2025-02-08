@@ -18,7 +18,7 @@ set PATH $HOME/.cargo/bin $PATH
 
 # Be sure to install exa 
 if type -q exa
-	alias ll "exa -l -g -T -x --colour -m --git --icons"
+	alias ll "exa -l -g -T -x --colour -m --git --icons --git-ignore -L=2 --group-directories-first"
 	alias lla "ll -a"
 end
 
