@@ -37,8 +37,14 @@ function y
 end
 
 # Aliases 
+#### GIT
 alias ga "git add"
 alias gc "git commit"
 alias gp "git push"
 alias gf "git fetch"
 alias gfp "git pull"
+alias gst "git status -sb"
+alias lg "lazygit"
+
+#### TMUX 
+alias init "./~/.tmux-sessions.sh && tmux a"
