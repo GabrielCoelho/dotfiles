@@ -10,9 +10,9 @@ M.base46 = {
 
 M.ui = {
   statusline = {
-    theme = "minimal",
-    separator_style = "round",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "cursor", "lsp" },
+    theme = "default",
+    separator_style = "arrow",
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "cwd", "diagnostics", "cursor", "lsp" },
     modules = nil,
   },
   icons = {
