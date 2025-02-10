@@ -12,7 +12,7 @@ M.ui = {
   statusline = {
     theme = "default",
     separator_style = "arrow",
-    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "cwd", "diagnostics", "cursor", "lsp" },
+    order = { "mode", "file", "git", "%=", "lsp_msg", "lsp", "%=", "diagnostics", "cwd", "cursor" },
     modules = nil,
   },
   icons = {
