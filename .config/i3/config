@@ -272,8 +272,8 @@ bindsym $mod+Mod1+g exec --no-startup-id ~/.config/i3/scripts/volume_brightness.
 bindsym $mod+Mod1+c exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
 # gradular volume control
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+# bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+# bindsym $mod+XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
 # mute
 #bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && killall -USR1 i3blocks
@@ -603,7 +603,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 # exec --no-startup-id ~/.keybd_configure.sh 
 exec --no-startup-id setxkbmap motiondvorak
 exec --no-startup-id espanso start --unmanaged
-
+exec --no-startup-id "syndaemon -i 2 -d"
 exec --no-startup-id tmux new -d -s main -n 󰧑
 # exec --no-startup-id sleep 1 && tmux neww -n configs
 # exec --no-startup-id sleep 1 && tmux neww -n dev
