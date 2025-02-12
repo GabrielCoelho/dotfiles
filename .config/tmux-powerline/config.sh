@@ -29,7 +29,7 @@
 	export TMUX_POWERLINE_STATUS_JUSTIFICATION="centre"
 
 	# The maximum length of the left status bar.
-	export TMUX_POWERLINE_STATUS_LEFT_LENGTH="60"
+	export TMUX_POWERLINE_STATUS_LEFT_LENGTH="100"
 	# The maximum length of the right status bar.
 	export TMUX_POWERLINE_STATUS_RIGHT_LENGTH="100"
 
@@ -241,7 +241,7 @@
 	# Music player to use. Can be any of {audacious, banshee, cmus, apple_music, itunes, lastfm, plexamp, mocp, mpd, mpd_simple, pithos, playerctl, rdio, rhythmbox, spotify, spotify_wine, file}.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MUSIC_PLAYER="spotify"
 	# File to be read in case the song is being read from a file
-	export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME=""
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME="30"
 	# Maximum output length.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MAX_LEN="40"
 	# How to handle too long strings. Can be {trim, roll}.
