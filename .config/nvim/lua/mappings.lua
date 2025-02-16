@@ -10,8 +10,7 @@ local nomap = vim.keymap.del
 -- local tel = require "nvchad.configs.telescope"
 -- Mapping
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
-map("i", "kj", "<ESC>")
+map("i", "jj", "<ESC>")
 map("n", "<S-h>", "<S-h>zz")
 map("n", "<S-l>", "<S-l>zz")
 map("n", "<C-j>", "<C-w>j")

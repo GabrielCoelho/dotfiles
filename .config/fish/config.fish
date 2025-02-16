@@ -36,6 +36,9 @@ function y
 	rm -f -- "$tmp"
 end
 
+# Zoxide 
+zoxide init fish | source
+
 # Aliases 
 #### GIT
 alias ga "git add"
