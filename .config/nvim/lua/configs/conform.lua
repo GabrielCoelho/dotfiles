@@ -12,7 +12,7 @@ return {
       rust = { "ast_grep" },
       java = { "google-java-format", "ast_grep" },
       go = { "ast_grep" },
-      python = { "ast_grep" },
+      python = { "brunette" },
       sql = { "sql_formatter" },
     },
     format_on_save = {

@@ -2,3 +2,4 @@
 tmux neww -n 
 tmux neww -n 
 tmux neww -n 󰉋
+tmux neww -n 󰩄

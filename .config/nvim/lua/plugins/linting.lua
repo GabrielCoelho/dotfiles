@@ -7,6 +7,7 @@ return {
       c = { "trivy", "cpplint" },
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
+      python = { "flake8" },
       rust = { "trivy" },
       markdown = { "markdownlint" },
     }
