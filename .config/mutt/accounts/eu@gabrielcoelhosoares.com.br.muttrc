@@ -1,0 +1,19 @@
+# vim: filetype=neomuttrc
+# muttrc file for account eu@gabrielcoelhosoares.com.br
+set real_name = "eu"
+set from = "eu@gabrielcoelhosoares.com.br"
+set sendmail = "msmtp -a eu@gabrielcoelhosoares.com.br"
+alias me eu <eu@gabrielcoelhosoares.com.br>
+set folder = "/home/gabrielcs/.local/share/mail/eu@gabrielcoelhosoares.com.br"
+set header_cache = "/home/gabrielcs/.cache/mutt-wizard/eu_gabrielcoelhosoares.com.br/headers"
+set message_cachedir = "/home/gabrielcs/.cache/mutt-wizard/eu_gabrielcoelhosoares.com.br/bodies"
+set mbox_type = Maildir
+set hostname = "gabrielcoelhosoares.com.br"
+source /usr/local/share/mutt-wizard/switch.muttrc
+set spool_file = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+
+macro index o "<shell-escape>mailsync eu@gabrielcoelhosoares.com.br<enter>" "sync eu@gabrielcoelhosoares.com.br"
+mailboxes "=INBOX.Trash" "=INBOX.Junk" "=INBOX.Sent" "=INBOX.Drafts"
