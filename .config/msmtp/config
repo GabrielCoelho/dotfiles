@@ -1,0 +1,31 @@
+host smtp.hostinger.com
+port 465
+from eu@gabrielcoelhosoares.com.br
+user eu@gabrielcoelhosoares.com.br
+passwordeval "pass eu@gabrielcoelhosoares.com.br"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/gabrielcs/.local/state/msmtp/msmtp.log
+tls_starttls off
+host smtp.hostinger.com
+port 465
+from eu@gabrielcoelhosoares.com.br
+user eu@gabrielcoelhosoares.com.br
+passwordeval "pass eu@gabrielcoelhosoares.com.br"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/gabrielcs/.local/state/msmtp/msmtp.log
+tls_starttls off
+account eu@gabrielcoelhosoares.com.br
+host smtp.hostinger.com
+port 465
+from eu@gabrielcoelhosoares.com.br
+user eu@gabrielcoelhosoares.com.br
+passwordeval "pass eu@gabrielcoelhosoares.com.br"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/gabrielcs/.local/state/msmtp/msmtp.log
+tls_starttls off

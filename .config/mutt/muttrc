@@ -3,4 +3,26 @@ source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /home/gabrielcs/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc
 set sort = "last-date-received"
 set editor = "/usr/bin/nvim"
+set date_format = "%Y-%m-%d %H:%M"
+set shell = 'fish'
+
+#### Content/Autoview
+auto_view application/ics
+auto_view text/calendar
+auto_view text/plain
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/calendar application/ics text/plain text/enriched text/html
+
+#### Sidebar Config
+set sidebar_divider_char = ' 	░'
+set sidebar_folder_indent = yes
+set sidebar_indent_string = ' - '
+set sidebar_non_empty_mailbox_only = yes
+set sidebar_visible = no
+set sidebar_width   = 50
+set sidebar_next_new_wrap = yes
+set sidebar_short_path = yes
+set sidebar_component_depth = 0
+
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/gabrielcs/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to eu@gabrielcoelhosoares.com.br"
