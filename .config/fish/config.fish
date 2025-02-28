@@ -50,7 +50,7 @@ alias gst "git status -sb"
 alias lg "lazygit"
 
 #### TMUX 
-alias init "./~/.tmux-sessions.sh && tmux a"
+alias init "~/.tmux-sessions.sh && tmux a"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

@@ -603,7 +603,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 # exec --no-startup-id ~/.keybd_configure.sh 
 exec --no-startup-id setxkbmap motiondvorak
 exec --no-startup-id espanso start --unmanaged
-exec --no-startup-id "syndaemon -i 2 -d"
+exec --no-startup-id "syndaemon -i 0.5 -d"
 exec --no-startup-id tmux new -d -s main -n 󰧑
 # exec --no-startup-id sleep 1 && tmux neww -n configs
 # exec --no-startup-id sleep 1 && tmux neww -n dev

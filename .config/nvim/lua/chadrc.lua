@@ -13,7 +13,9 @@ M.ui = {
     theme = "default",
     separator_style = "arrow",
     order = { "mode", "file", "git", "%=", "lsp_msg", "lsp", "%=", "diagnostics", "cwd", "cursor" },
-    modules = nil,
+    modules = {
+      cursor = "%#StText# %l:%c",
+    },
   },
   icons = {
     ft = "",
