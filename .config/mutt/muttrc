@@ -1,6 +1,8 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /home/gabrielcs/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc
+source /home/gabrielcs/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
+source /home/gabrielcs/.config/mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
 set sort = "last-date-received"
 set editor = "/usr/bin/nvim"
 set date_format = "%Y-%m-%d %H:%M"
