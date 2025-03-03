@@ -26,9 +26,9 @@ return {
       },
       completion = {
         -- Set to false to disable completion.
-        nvim_cmp = true,
+        nvim_cmp = false,
         -- Trigger completion at 2 chars.
-        min_chars = 2,
+        -- min_chars = 2,
       },
       new_notes_location = "0. Inbox/",
       templates = {
