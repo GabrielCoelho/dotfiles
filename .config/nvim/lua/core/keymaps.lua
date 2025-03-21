@@ -5,6 +5,7 @@ local opts = { noremap = true, silent = true }
 -- Mapeamentos gerais
 map("n", ";", ":", { desc = "CMD Enter Command Mode" })
 map("i", "jj", "<ESC>", { desc = "Exit Insert Mode" })
+map("n", "gx", ":!open <c-r><c-a><CR>", { desc = "Open URL under cursor" })
 
 -- Navegação aprimorada
 map("n", "<S-h>", "<S-h>zz", opts)
@@ -15,6 +16,16 @@ map("n", "<C-Up>", ":resize -2<CR>", opts)
 map("n", "<C-Down>", ":resize +2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Splits de janelas
+map("n", "<leader>sv", "<C-w>v", { desc = "Split window Vertically" })
+map("n", "<leader>ss", "<C-w>s", { desc = "Split window Horizontally" })
+map("n", "<leader>se", "<C-w>=", { desc = "Make splitted windows equal width" })
+map("n", "<leader>sx", ":close<CR>", { desc = "Close Split" })
+map("n", "<leader>sj", "<C-w>-", { desc = "Make height shorter" })
+map("n", "<leader>sk", "<C-w>+", { desc = "Make height taller" })
+map("n", "<leader>sl", "<C-w>>5", { desc = "Make width bigger" })
+map("n", "<leader>sh", "<C-w><5", { desc = "Make width smaller" })
 
 -- Buffer navigation
 map("n", "<TAB>", ":bnext<CR>", opts)
@@ -30,6 +41,14 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 -- Manter o cursor no meio ao procurar
 map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
+
+-- Quickfix
+map("n", "<leader>fo", ":copen<CR>", { desc = "Open Quickfix(qf)" })
+map("n", "<leader>ff", ":cfirst<CR>", { desc = "Jump to the first qflist" })
+map("n", "<leader>fn", ":cnext<CR>", { desc = "Jump to the next qflist" })
+map("n", "<leader>fp", ":cprev<CR>", { desc = "Jump to the previous qflist" })
+map("n", "<leader>fl", ":clast<CR>", { desc = "Jump to the last qflist" })
+map("n", "<leader>fc", ":cclose<CR>", { desc = "Close quickfix list" })
 
 -- Salvar e sair
 map("n", "<C-s>", ":w<CR>", { desc = "Save file" })
@@ -71,6 +90,19 @@ map("n", "<leader>dO", "<cmd>DapStepOut<CR>", { desc = "Step Out" })
 map("n", "<leader>dr", "<cmd>DapReplOpen<CR>", { desc = "Open REPL" })
 map("n", "<leader>dl", "<cmd>DapRunLast<CR>", { desc = "Run Last" })
 map("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", { desc = "Toggle UI" })
+
+-- Java-test
+map("n", "<leader>tc", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").test_class()
+	end
+end)
+
+map("n", "<leader>tm", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").test_nearest_method()
+	end
+end)
 
 -- LazyGit
 map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
