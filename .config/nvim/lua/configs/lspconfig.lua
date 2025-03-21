@@ -35,3 +35,28 @@ lspconfig.rust_analyzer.setup {
     },
   },
 }
+
+-- Java
+lspconfig.jdtls.setup {
+  cmd = {
+    "java",
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=true",
+    "-Dlog.level=ALL",
+    "-Xmx1g",
+    "-javaagent:~/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar", -- Adiciona o Lombok como agente Java
+    "--add-modules=ALL-SYSTEM",
+    "--add-opens",
+    "java.base/java.util=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.lang=ALL-UNNAMED",
+    "-jar",
+    vim.fn.glob "~/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar",
+    "-configuration",
+    "~/.local/share/nvim/mason/packages/jdtls/config_linux", -- Ajuste para seu SO (linux, mac, win)
+    "-data",
+    "~/.cache/jdtls-workspace", -- Defina seu diretório de workspace
+  },
+}
