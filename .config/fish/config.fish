@@ -13,10 +13,10 @@ end
 
 # Some configs and Quality of Life
 
-# PATH configs 
+# PATH configs
 set PATH $HOME/.cargo/bin $PATH
 
-# Be sure to install exa 
+# Be sure to install exa
 if type -q exa
 	alias ll "exa -l -g -T -x --colour -m --git --icons --git-ignore -L=2 --group-directories-first"
 	alias lla "ll -a"
@@ -36,10 +36,10 @@ function y
 	rm -f -- "$tmp"
 end
 
-# Zoxide 
+# Zoxide
 zoxide init fish | source
 
-# Aliases 
+# Aliases
 #### GIT
 alias ga "git add"
 alias gc "git commit"
@@ -49,7 +49,7 @@ alias gfp "git pull"
 alias gst "git status -sb"
 alias lg "lazygit"
 
-#### TMUX 
+#### TMUX
 alias init "~/.tmux-sessions.sh && tmux a"
 
 # >>> conda initialize >>>
