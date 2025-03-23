@@ -1,8 +1,7 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /home/gabrielcs/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc
-source /home/gabrielcs/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
-source /home/gabrielcs/.config/mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
+source /home/gabriel/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
+source /home/gabriel/.config/mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
 set sort = "last-date-received"
 set editor = "/usr/bin/nvim"
 set date_format = "%Y-%m-%d %H:%M"
@@ -16,6 +15,10 @@ auto_view text/html
 auto_view application/pgp-encrypted
 alternative_order text/calendar application/ics text/plain text/enriched text/html
 
+set mailcap_path = "$HOME/.config/mutt/mailcap"
+bind attach <return> view-mailcap
+
+
 #### Sidebar Config
 set sidebar_divider_char = ' 	░'
 set sidebar_folder_indent = yes
@@ -27,4 +30,4 @@ set sidebar_next_new_wrap = yes
 set sidebar_short_path = yes
 set sidebar_component_depth = 0
 
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/gabrielcs/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to eu@gabrielcoelhosoares.com.br"
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/gabriel/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to eu@gabrielcoelhosoares.com.br"

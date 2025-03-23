@@ -27,5 +27,6 @@ passwordeval "pass eu@gabrielcoelhosoares.com.br"
 auth on
 tls on
 tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/gabrielcs/.local/state/msmtp/msmtp.log
+logfile /home/gabriel/.config/msmtp/msmtp.log
 tls_starttls off
+

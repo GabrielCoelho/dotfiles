@@ -18,6 +18,7 @@ sudo pacman -Syu
 
 ```bash
 yay stow
+yay picom
 # na pasta home "~/"
 git clone https://github.com/GabrielCoelho/dotfiles .dotfiles
 rm ~/.config/i3/ ~/.config/rofi/ ~/.config/user-dirs.*
@@ -50,10 +51,10 @@ Ao iniciar ele ainda precisará instalar todas as outras configurações para fu
 
 3. Zen-Browser
 
-`yay flatpak`
-`flatpak install flathub app.zen_browser.zen`
+`yay zen-browser`
 
-(Será necessário reiniciar para aparecer no menu)
+> **Importante:** Escolher a opção `zen-browser-bin`
+
 
 4. Configuração de Teclado `MotionDvorakBR`
 
@@ -70,11 +71,21 @@ setxkbmap motiondvorak
 
 6. neomutt
 
-`yay neomutt`
-`yay mutt-wizard`
-`yay isync`
-`yay lynx`
-`yay urlview`
+```bash
+yay neomutt
+yay mutt-wizard
+yay isync
+yay lynx
+yay urlview
+yay xdg-open-server
+mw -l # Se houver uma conta e, ao tentar entrar dar erro, executar os comandos abaixo
+mw -d # delete a conta
+gpg --full-generate-key # seguir o passo a passo
+pass init $EMAIL # onde $EMAIL é o email da sua conta.
+mw -a $EMAIL # siga o passo a passo e a conta deve estar configurada.
+# Talvez seja necessário entrar com neomutt e executar `i1` para entrar na pasta.
+```
+
 
 7. Wezterm
 
@@ -100,12 +111,13 @@ Iniciei o tmux e rodei um `<prefix>r` para recarregar as configurações, e depo
 git config --global user.name "Gabriel Coelho Soares"
 git config --global user.email gbcoe@outlook.com.br
 git config --global core.editor nvim
-
+ssh-keygen -t ed25519 -C "gbcoe@outlook.com.br"
+cat ~/.ssh/id_ed25519.pub # copiar o conteúdo e adicionar no Github.
 ```
-
 
 10. Development tools
 
+**Java**
 `curl -s "https://get.sdkman.io" | bash` <- SDKMan!
 
 Abra uma nova `pane` no tmux e digite:
@@ -113,6 +125,41 @@ Abra uma nova `pane` no tmux e digite:
 `sdk install java 21.0.6-amzn` <- Corretto versão 21.
 `sdk install maven` <- maven
 
+**Node**
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash` <- Node Version Manager
 `nvm install lts`
 `nvm use lts`
+`npm install -g live-server`
+
+**Rust**
+
+```bash
+yay rustup
+rustup install stable
+rustup default stable
+fisher install usami-k/fish-rustup
+```
+
+----------
+
+## Diretórios
+
+```bash
+# em ~/
+mkdir 1.\ Projects/ 0.\ Inbox/ 2.\ Areas/ 3.\ Resources/ 4.\ Archives/
+mv -t ~/3.\ Resources/ ~/Documentos/ ~/Downloads/ ~/Modelos/ ~/Vídeos/ ~/Imagens/ ~/Músicas/ ~/Público/ ~/Área\ de\ trabalho/
+cd ~/0.\ Inbox/
+git clone git@github.com:GabrielCoelho/full-sb.git mybrain
+git clone git@github.com:GabrielCoelho/GabrielCoelho.github.io.git public_notes
+git clone git@github.com:GabrielCoelho/GabrielCoelho.git
+yay onedriver # para conectar com a nuvem (Salvar em áreas)
+```
+
+----------
+
+## Outros Aplicativos
+
+```bash
+yay morgen-bin
+yay mgba-qt
+```
