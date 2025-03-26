@@ -64,6 +64,20 @@ map("n", "<leader>tq", function()
 	require("core.functions").toggle_transparency()
 end, { desc = "Toggle transparency" })
 
+-- LSP
+map("n", "<leader>lf", vim.lsp.buf.format, { desc = "Format" })
+map("n", "<leader>lr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "Code Action" })
+map("n", "<leader>ld", vim.lsp.buf.definition, { desc = "Go to Definition" })
+map("n", "<leader>lD", vim.lsp.buf.declaration, { desc = "Go to Declaration" })
+map("n", "<leader>li", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+map("n", "<leader>lt", vim.lsp.buf.type_definition, { desc = "Type Definition" })
+map("n", "<leader>lh", vim.lsp.buf.hover, { desc = "Hover" })
+map("n", "<leader>ls", vim.lsp.buf.signature_help, { desc = "Signature Help" })
+map("n", "<leader>ll", function()
+	require("lint").try_lint()
+end, { desc = "Lint" })
+
 -- Telescope
 map("n", "<leader>os", "<cmd>Telescope live_grep<CR>", { desc = "Search text" })
 map("n", "<leader>ob", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })

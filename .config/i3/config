@@ -285,7 +285,7 @@ bindsym $mod+Mod1+f exec --no-startup-id ~/.config/i3/scripts/volume_brightness.
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
 # audio control
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause 
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 # Above line will also work for pausing
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -361,10 +361,10 @@ assign [class="TelegramDesktop"] $ws5
 #
 # picom: https://wiki.archlinux.org/title/Picom
 # manpage: https://man.archlinux.org/man/picom.1.en
-# The default configuration is available in /etc/xdg/picom.conf 
+# The default configuration is available in /etc/xdg/picom.conf
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
-# start using default config 
+# start using default config
 # exec_always --no-startup-id picom -b
 #
 # for custom config:
@@ -386,7 +386,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 
 # start welcome app
-#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
+#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3
 
 # num lock activated
 #exec --no-startup-id numlockx on
@@ -403,7 +403,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/typewriter.jpg
+exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/philos.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 0 0 600
@@ -424,7 +424,7 @@ exec --no-startup-id xset s 480 dpms 0 0 600
 # dunst config used ~/.config/dunst/dunstrc
 # set alternative config if needed:
 #exec --no-startup-id /usr/bin/dunst --config ~/.config/dunst/dunstrc
-# may need to run dbus-launch explicitly: 
+# may need to run dbus-launch explicitly:
 #exec --no-startup-id dbus-launch /usr/bin/dunst
 exec --no-startup-id /usr/bin/dunst
 # alternative if you installed aside with XFCE4:
@@ -479,7 +479,7 @@ for_window [class="urxvt"] border pixel 1
 # set size of floating window
 #for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
 for_window [class=".*"] resize set 900 560
-#to change size of all floating windows 
+#to change size of all floating windows
 
 # set position of floating window
 for_window [class=".*"] move position center
@@ -600,8 +600,8 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 #bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
 
-# profile initialization 
-# exec --no-startup-id ~/.keybd_configure.sh 
+# profile initialization
+# exec --no-startup-id ~/.keybd_configure.sh
 exec --no-startup-id setxkbmap motiondvorak
 exec --no-startup-id espanso start --unmanaged
 exec --no-startup-id "syndaemon -i 0.5 -d"

@@ -14,6 +14,7 @@ local servers = {
 	"cssls",
 	"eslint",
 	"ts_ls",
+	"lemminx",
 	"pyright",
 	"yamlls",
 	"marksman",
