@@ -1,0 +1,1 @@
+mar 26 10:08:42 host=smtp.hostinger.com tls=on auth=on user=eu@gabrielcoelhosoares.com.br from=eu@gabrielcoelhosoares.com.br recipients=recrutamento@isma.com.br mailsize=82851 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 4ZN6YL5xTzz6BKYR' exitcode=EX_OK

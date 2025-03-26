@@ -52,6 +52,7 @@ Ao iniciar ele ainda precisará instalar todas as outras configurações para fu
 3. Zen-Browser
 
 `yay zen-browser`
+`set -g BROWSER /bin/zen-browser`
 
 > **Importante:** Escolher a opção `zen-browser-bin`
 
@@ -162,4 +163,13 @@ yay onedriver # para conectar com a nuvem (Salvar em áreas)
 ```bash
 yay morgen-bin
 yay mgba-qt
+yay espanso-x11
+yay obsidian
+z dot # cd ~/.dotfiles/
+cd .config/espanso/match
+ls
+# Se já houver arquivos, basta dar um:
+git fetch && git pull # ou gfp
+# Se não, precisará clonar/adicionar submodulo
+
 ```
