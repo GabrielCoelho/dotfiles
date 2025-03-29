@@ -19,7 +19,6 @@ return {
 					"jdtls",
 					"clangd",
 					"yamlls",
-					"marksman",
 				},
 			})
 		end,
