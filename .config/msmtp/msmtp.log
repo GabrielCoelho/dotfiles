@@ -1,1 +1,3 @@
 mar 26 10:08:42 host=smtp.hostinger.com tls=on auth=on user=eu@gabrielcoelhosoares.com.br from=eu@gabrielcoelhosoares.com.br recipients=recrutamento@isma.com.br mailsize=82851 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 4ZN6YL5xTzz6BKYR' exitcode=EX_OK
+mar 31 06:32:53 host=smtp.hostinger.com tls=on auth=on user=eu@gabrielcoelhosoares.com.br from=eu@gabrielcoelhosoares.com.br recipients=gbcoe@library.readwise.io mailsize=16537 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 4ZR5X36WMgzKLLHy' exitcode=EX_OK
+mar 31 21:35:48 host=smtp.hostinger.com tls=on auth=on user=eu@gabrielcoelhosoares.com.br from=eu@gabrielcoelhosoares.com.br recipients=thaina.pereira@mahle.com mailsize=1956 smtpstatus=250 smtpmsg='250 2.0.0 Ok: queued as 4ZRTYt2SxvzKLLHh' exitcode=EX_OK

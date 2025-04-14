@@ -65,3 +65,5 @@ else
 end
 # <<< conda initialize <<<
 
+# NVM start
+nvm use lts --silent

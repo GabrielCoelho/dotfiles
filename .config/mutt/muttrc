@@ -2,6 +2,7 @@
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
 source /home/gabriel/.config/mutt/gruvbox/colors-gruvbox-shuber.muttrc
 source /home/gabriel/.config/mutt/gruvbox/colors-gruvbox-shuber-extended.muttrc
+source /home/gabriel/.config/mutt/accounts/eu@gabrielcoelhosoares.com.br.muttrc
 set sort = "last-date-received"
 set editor = "/usr/bin/nvim"
 set date_format = "%Y-%m-%d %H:%M"
