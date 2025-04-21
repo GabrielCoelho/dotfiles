@@ -13,6 +13,14 @@ end
 
 # Some configs and Quality of Life
 
+# Removing unused firefox and adding zen
+set --erase --global BROWSER
+set --erase --global EDITOR
+set -gx BROWSER zen-browser
+set -gx EDITOR nvim
+set -gx CALCURSE_EDITOR nvim
+set -gx VISUAL nvim
+
 # PATH configs
 set PATH $HOME/.cargo/bin $PATH
 
@@ -64,6 +72,7 @@ else
     end
 end
 # <<< conda initialize <<<
+
 
 # NVM start
 nvm use lts --silent
