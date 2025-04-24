@@ -493,8 +493,9 @@ for_window [window_role="About"] floating enable
 for_window [class="urxvt"] border pixel 1
 
 # set size of floating window
-#for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480 #to set size of file choose dialog
-for_window [class=".*"] resize set 900 560
+#for_window [window_role="(?i)GtkFileChooserDialog"] resize set 640 480
+#to set size of file choose dialog
+for_window [class=".*" floating] resize set 900 560
 #to change size of all floating windows
 
 # set position of floating window
@@ -538,7 +539,7 @@ bar {
 	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)
 # reference: https://i3wm.org/docs/userguide.html#_tray_output
-		    #tray_output primary
+		    tray_output primary
 		    tray_padding 2
 
 # When strip_workspace_numbers is set to yes,
