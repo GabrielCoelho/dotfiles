@@ -9,7 +9,7 @@ heading_completions = true
 # to insert the name of the first heading in the display text area
 # [](file) -> [first heading of file.md](file)
 # If false, [](file) -> [](file) (for example)
-title_headings = true
+title_headings = false
 
 # Show diagnostics for unresolved links; note that even if this is turned off,
 # special semantic tokens will be sent for the unresolved links, allowing you
@@ -19,9 +19,9 @@ unresolved_diagnostics = true
 semantic_tokens = true
 
 # Resolve tags in code blocks
-tags_in_codeblocks = true
+tags_in_codeblocks = false
 # Resolve references in code blocks
-references_in_codeblocks = true
+references_in_codeblocks = false
 
 # The folder for new files to be created in; this is relevant for the code action that creates
 # from an unresolved link. If not specified, it will import from your obsidian config option titled
@@ -38,7 +38,7 @@ daily_notes_folder = ""
 
 # Whether markdown links should include an extension or not
 # for example [File](file.md) or [File](file)
-include_md_extension_md_link = false
+include_md_extension_md_link = true
 
 # Whether wikilinks should include an extension or not (needed for Markor compatibility)
 # for example [[File]] or [[File.md]]
@@ -46,7 +46,7 @@ include_md_extension_wikilink = false
 
 # Enable hover; this is relevant for VSCode and Zed where hover could be triggered on mouse hover
 # and could be annoying
-hover = true
+hover = false
 
 # Handle case in fuzzy matches: Ignore | Smart | Respect
 case_matching = "Smart"

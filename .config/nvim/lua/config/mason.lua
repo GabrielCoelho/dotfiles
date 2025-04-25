@@ -67,7 +67,6 @@ local tools = {
 	"html-lsp",
 	"css-lsp",
 	"yaml-language-server",
-	"marksman", -- Markdown
 }
 
 -- Função para garantir que as ferramentas estejam instaladas

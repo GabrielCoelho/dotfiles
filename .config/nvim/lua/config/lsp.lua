@@ -71,17 +71,3 @@ lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-
--- Markdown Oxide
-lspconfig.markdown_oxide.setup({
-	-- Ensure that dynamicRegistration is enabled! This allows the LS to take into account actions like the
-	-- Create Unresolved File code action, resolving completions for unindexed code blocks, ...
-	capabilities = vim.tbl_deep_extend("force", capabilities, {
-		workspace = {
-			didChangeWatchedFiles = {
-				dynamicRegistration = true,
-			},
-		},
-	}),
-	on_attach = on_attach, -- configure your on attach config
-})
