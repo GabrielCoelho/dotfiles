@@ -1,135 +1,168 @@
-# Configurando minhas configurações
+# 🚀 Dotfiles - Configuração de Ambiente Personalizado
 
-## GNU Stow
+[![GitHub license](https://img.shields.io/github/license/GabrielCoelho/dotfiles)](https://github.com/GabrielCoelho/dotfiles/blob/main/LICENSE)
+[![Fish Shell](https://img.shields.io/badge/Shell-Fish-blue)](https://fishshell.com/)
+[![Neovim](https://img.shields.io/badge/Editor-Neovim-green)](https://neovim.io/)
+[![i3WM](https://img.shields.io/badge/WM-i3-purple)](https://i3wm.org/)
 
-A primeira coisa é certificar que o Stow está instalado. Para isso iremos rodar um simples comando:
+Este repositório contém meus arquivos de configuração personalizados (dotfiles) para criar um ambiente de desenvolvimento produtivo e harmonioso baseado em Linux.
 
-```bash
-stow --version
+![Preview do Ambiente](https://via.placeholder.com/800x450.png?text=Preview+do+Ambiente)
+
+## 📋 Conteúdo
+
+- [Visão Geral](#visão-geral)
+- [Estrutura do Repositório](#estrutura-do-repositório)
+- [Principais Recursos](#principais-recursos)
+- [Temas e Estilos](#temas-e-estilos)
+- [Instalação](#instalação)
+- [Teclas e Atalhos](#teclas-e-atalhos)
+- [Aplicativos Personalizados](#aplicativos-personalizados)
+- [Contribuição](#contribuição)
+
+## 🌐 Visão Geral
+
+Este conjunto de configurações é projetado para funcionar no EndeavourOS (baseado em Arch Linux), com ênfase em:
+
+- **Produtividade**: Fluxos de trabalho otimizados com atalhos de teclado eficientes
+- **Minimalismo**: Interface limpa e funcional com foco no conteúdo
+- **Personalização**: Alta adaptabilidade para diferentes casos de uso
+- **Teclado-centrismo**: Uso mínimo do mouse com o layout de teclado MotionDvorakBR
+- **Terminal-centrismo**: Foco em ferramentas de terminal para maior eficiência
+
+## 📂 Estrutura do Repositório
+
+O repositório está organizado da seguinte forma:
+
+```
+.
+├── .config/               # Configurações de aplicativos
+│   ├── fish/              # Shell Fish
+│   ├── i3/                # Gerenciador de janelas i3
+│   ├── nvim/              # Editor Neovim
+│   ├── wezterm/           # Terminal WezTerm
+│   ├── tmux/              # Multiplexador de terminal
+│   ├── yazi/              # Gerenciador de arquivos
+│   ├── mutt/              # Cliente de email
+│   ├── calcurse/          # Calendário/Agenda
+│   └── ...                # Outras configurações
+├── .local/                # Arquivos locais do usuário
+├── .tmux/                 # Plugins e configurações do Tmux
+├── .motiondvorakbr/       # Configuração do teclado personalizado
+├── INSTALL.md             # Guia de instalação
+└── README.md              # Este arquivo
 ```
 
-> stow (GNU Stow) version 2.3.1
+## ✨ Principais Recursos
 
-Se o output for diferente do descrito acima, exceto versões diferentes, você precisará instalar o Stow na sua máquina.
+### 🐚 Fish Shell
+- Prompt personalizado com Tide
+- Aliases úteis para Git, Tmux e outros
+- Integração com NVM, SDK e ferramentas de desenvolvimento
+- Autocompletamento avançado
 
-Em máquinas Ubuntu/Debian based (que são as que uso normalmente), basta executar no teriminal `sudo apt install stow`.
+### 📝 Neovim
+- Sistema completo de plugins gerenciados por Lazy.nvim
+- LSP configurado para múltiplas linguagens
+- Formatação e lint automáticos
+- Temas e cores baseados em Gruvbox
+- Debug integrado com DAP
+- Gerenciamento de Git com Gitsigns
 
-## Git
+### 🪟 i3 Window Manager
+- Tiling otimizado para múltiplos monitores
+- Atalhos intuitivos para navegação
+- Configuração personalizada da barra i3blocks
+- Integração com Picom para efeitos visuais sutis
 
-Em seguida, instale o git caso não esteja instalado.
+### 📊 Tmux
+- Multiplexação de terminais eficiente
+- Statusbar personalizada com informações úteis
+- Atalhos de teclado intuitivos
+- Integração com Neovim
+
+### 📅 Ferramentas de Produtividade
+- Calcurse para calendário e agendamento
+- NeoMutt para gerenciamento de email
+- ZK para sistema de notas interligadas (Zettelkasten)
+- Yazi para navegação eficiente de arquivos
+
+## 🎨 Temas e Estilos
+
+Este ambiente utiliza um esquema de cores baseado em Gruvbox, proporcionando uma experiência visual coesa entre todos os aplicativos:
+
+- **Cores principais**: Tons terrosos e quentes, com destaque em azul e laranja
+- **Fonte**: MonaspiceXe Nerd Font para terminal e editor
+- **Estilo da interface**: Minimalista com informações essenciais
+- **Transparência**: Suporte a transparência ajustável via Picom
+
+## 📥 Instalação
+
+Para instalar estas configurações, siga o guia detalhado em [INSTALL.md](INSTALL.md).
+
+Resumo rápido:
 
 ```bash
-git --version
+# Clone o repositório
+git clone https://github.com/GabrielCoelho/dotfiles ~/.dotfiles
+
+# Use stow para criar symlinks
+cd ~/.dotfiles
+stow .
 ```
 
-> git version 2.39.2
+## ⌨️ Teclas e Atalhos
 
-Mesmo esquema, se não estiver, basta instalar via teriminal `sudo apt install git`
+### Neovim
 
-## TMUX
+| Atalho         | Ação                           |
+|----------------|--------------------------------|
+| `,` (Leader)   | Tecla líder                    |
+| `,w`           | Salvar arquivo                 |
+| `,q`           | Fechar                         |
+| `,sm`          | Formatar código                |
+| `,ok`          | Buscar arquivos                |
+| `,os`          | Buscar texto                   |
+| `,aa`          | Adicionar arquivo ao Harpoon   |
+| `,ae`          | Exibir menu do Harpoon         |
+| `-`            | Abrir navegador de arquivos    |
 
-Instale o tmux
+### i3wm
 
-```bash
-sudo apt install tmux
-```
+| Atalho               | Ação                          |
+|----------------------|-------------------------------|
+| `Mod+Return`         | Abrir terminal                |
+| `Mod+d`              | Menu de aplicativos           |
+| `Mod+Shift+q`        | Fechar janela                 |
+| `Mod+h/j/k/l`        | Navegar entre janelas         |
+| `Mod+Shift+e`        | Menu de saída                 |
+| `Mod+Shift+n`        | Criar novo workspace vazio    |
+| `Print`              | Capturar tela                 |
 
-## Neovim
+### Tmux
 
-Para instalar o Neovim, muitas vezes o pacote disponível via instalação CLI não funcionará com os plugins que eu utilizo. Por isso, minha sugestão é baixar o **AppImage** disponibilizado no [Github do projeto](https://github.com/neovim/neovim/releases) e baixar a última versão.
+| Atalho             | Ação                           |
+|--------------------|--------------------------------|
+| `Ctrl+t`           | Prefixo (substituindo Ctrl+b)  |
+| `Prefix+v`         | Split vertical                 |
+| `Prefix+h`         | Split horizontal               |
+| `Prefix+r`         | Recarregar configuração        |
+| `Prefix+I`         | Instalar plugins               |
 
-Em seguida, altere as permissões do arquivo baixado e mova-o para a pasta de arquivos binários:
+## 📱 Aplicativos Personalizados
 
-```bash
-sudo chmod u+x nvim.appimage && sudo mv nvim.appimage /bin/nvim.appimage
-```
+Estes dotfiles incluem configurações para os seguintes aplicativos especializados:
 
-Por enquanto é isso.
+- **WezTerm**: Terminal moderno com suporte a GPU
+- **Zen-Browser**: Navegador minimalista
+- **Espanso**: Expansor de texto para automação
+- **Navi**: Ferramenta de cheatsheet interativa
+- **MotionDvorakBR**: Layout de teclado otimizado para programação
 
-### NvChad
+## 👥 Contribuição
 
-Agora instalaremos a distribuição do neovim que utilizo, com o seguinte comando:
-
-```bash
-git clone https://github.com/NvChad/starter ~/.config/nvim && /bin/nvim.appimage
-```
-
-Com o Neovim aberto, o Lazy.nvim irá instalar todos os pacotes que o NvChad considera importantes e, terminada esta configuração automática, podemos sair do neovim. (Basta digitar `:q!` durante o modo **normal**).
-
-Agora, iremos remover as configurações com o comando:
-
-```bash
-rm -rf ~/.config/nvim
-```
-
-> Tome cuidado e copie corretamente o caminho, para evitar perder todos os arquivos.
-> **Isso é necessário para evitar erros com o Stow no momento oportuno**
-
-## Fish
-
-Para instalar o Fish shell, recomendo adicionar à lista de repositórios conforme a distribuição que estiver utilizando: [Acesse o guia clicando aqui](https://fishshell.com/).
-
-- **Observação**
-
-> É possível que se faça necessária a limpeza da pasta `~/.config/fish/` para evitar erros com o Stow
-
-## i3
-
-Supondo que ainda não esteja no i3wm, você precisará instalá-lo. Siga os passos no site oficial [clicando aqui](https://i3wm.org/).
-
-- **Observação**
-
-> É possível que se faça necessária a limpeza da pasta `~/.config/fish/` para evitar erros com o Stow
-
-## WezTerm
-
-Faça a instalação a partir do site com o que mais lhe agradar, basta [clicar aqui](https://wezfurlong.org/wezterm/install/linux.html).
-
-- **Observação**
-
-> É possível que se faça necessária a limpeza da pasta `~/.config/fish/` para evitar erros com o Stow
+Sugestões e contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests para melhorar estas configurações.
 
 ---
 
-## Adicionando o Repositório "Dotfiles"
-
-Agora as configurações virão a partir do repositório no github. Caso você não tenha limpado nenhuma pasta, aqui vai uma pequena sequência de comandos para cada programa:
-
-```bash
-# Neovim
-sudo rm -rf ~/.config/nvim/
-
-# Fish
-sudo rm -rf ~/.config/fish/
-
-# i3wm
-sudo rm -rf ~/.config/i3/
-sudo rm -rf ~/.config/i3status/
-
-# WezTerm
-rm ~/.wezterm.lua
-```
-
-Faça o download do repositório em sua pasta home com o seguinte comando:
-
-```bash
-cd ~ && git clone https://github.com/GabrielCoelho/dotfiles .dotfiles
-```
-
-E é só iniciar o stow na pasta baixada:
-
-```bash
-cd ~/.dotfiles/ && stow .
-```
-
-Pronto, qualquer um dos programas que você for utilizar já estará configurado com minhas configurações pessoais
-
-### Um último adendo
-
-No caso do `tmux-powerline` você terá que entrar numa sessão do TMUX, entrar com o prefixo e depois `<Shift+i>` para instalar todos os pacotes. Basta resetar o tmux (`<prefix+r>`) que o tmux-powerline irá funcionar. Se não estiver com o padrão "gruvbox" de cor, você precisará realizar o seguinte comando:
-
-```bash
-sudo cp ~/.dotfiles/.config/tmux-powerline/themes/gruvbox.sh ~/.tmux/plugins/tmux-powerline/themes/default.sh
-```
-
-Assim, ao resetar o TMUX com o prefixo + r, você terá todas as configurações utilizadas no presente momento: 2024-07-17
+⚙️ Feito com 💙 por [Gabriel Coelho](https://github.com/GabrielCoelho)
