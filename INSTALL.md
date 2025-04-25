@@ -1,63 +1,82 @@
-# Instruções de Instalação
+# Guia de Instalação do Ambiente
 
-> Tive de reinstalar meu linux e aqui está um passo a passo criado conforme eu tive a necessidade de reinstalar tudo.
+> Este guia documenta o processo de instalação e configuração do meu ambiente de desenvolvimento personalizado no EndeavourOS.
 
-- OS: EndeavourOs
+## Sumário
 
-----------
+- [Preparação Inicial](#preparação-inicial)
+- [Aplicações Essenciais](#aplicações-essenciais)
+  - [Neovim](#neovim)
+  - [Fish Shell](#fish-shell)
+  - [Zen-Browser](#zen-browser)
+  - [Teclado MotionDvorakBR](#configuração-de-teclado-motiondvorakbr)
+  - [Yazi (Gerenciador de Arquivos)](#yazi-rs)
+  - [NeoMutt (Cliente de Email)](#neomutt)
+  - [WezTerm (Terminal)](#wezterm)
+  - [Tmux (Gerenciador de Sessões)](#tmux)
+  - [Git (Controle de Versão)](#configurações-git)
+  - [Zk (Gerenciador de Notas)](#zk)
+  - [Calcurse (Calendário/Agenda)](#calcurse)
+- [Ferramentas de Desenvolvimento](#development-tools)
+  - [Java](#java)
+  - [Node.js](#node)
+  - [Rust](#rust)
+- [Organização de Diretórios](#diretórios)
+- [Aplicativos Adicionais](#outros-aplicativos)
+- [Implementação das Configurações](#adicionando-o-repositório-dotfiles)
 
-## Primeiro Boot
+## Preparação Inicial
 
-1. Atualizar
+### Atualização do Sistema
 
 ```bash
 sudo pacman -Syu
 ```
 
-2. .dotfiles
+### Instalação do Stow e Outras Dependências Básicas
 
 ```bash
-yay stow
-yay picom
-# na pasta home "~/"
+yay -S stow picom
+```
+
+### Clonagem e Configuração dos Dotfiles
+
+```bash
+# Na pasta home "~/"
 git clone https://github.com/GabrielCoelho/dotfiles .dotfiles
-rm ~/.config/i3/ ~/.config/rofi/ ~/.config/user-dirs.*
+rm -rf ~/.config/i3/ ~/.config/rofi/ ~/.config/user-dirs.*
 cd .dotfiles
 stow .
 ```
 
-Os comandos acima clonam o meu repositório de dotfiles, apagam as configurações atuais do EndeavourOs e aplicam as minhas junto do `stow`.
+## Aplicações Essenciais
 
-## Instalação de aplicações principais
+### Neovim
 
-1. Neovim
+```bash
+yay -S neovim
 
-`yay neovim`
+# Dependências
+yay -S xclip xsel python-pynvim python
+```
 
-Ao iniciar ele ainda precisará instalar todas as outras configurações para funcionar perfeitamente, mas já estará com os meus mappings e completions necessários.
+### Fish Shell
 
-`yay xclip`
-`yay xsel`
-`yay python-pynvim`
-`yay python`
+```bash
+yay -S fish
+rm ~/.dotfiles/.config/fish/*/nvm*
+fisher install jorgebucaran/nvm.fish
+yay -S brightnessctl gammastep
+```
 
-2. Fish
+### Zen-Browser
 
-`yay fish`
-`rm ~/.dotfiles/.config/fish/*/nvm*`
-`fisher install jorgebucaran/nvm.fish`
-`yay brightnessctl`
-`yay gammastep`
+```bash
+yay -S zen-browser-bin
+fish -c "set -U BROWSER /bin/zen-browser"
+```
 
-3. Zen-Browser
-
-`yay zen-browser`
-`set -g BROWSER /bin/zen-browser`
-
-> **Importante:** Escolher a opção `zen-browser-bin`
-
-
-4. Configuração de Teclado `MotionDvorakBR`
+### Configuração de Teclado MotionDvorakBR
 
 ```bash
 # Na home ~/ digite os seguintes comandos:
@@ -66,110 +85,204 @@ sudo cp .motiondvorakbr/motiondvorak /usr/share/X11/xkb/symbols/motiondvorak
 setxkbmap motiondvorak
 ```
 
-5. Yazi-rs
-
-`yay yazi`
-
-6. neomutt
+### Yazi-rs
 
 ```bash
-yay neomutt
-yay mutt-wizard
-yay isync
-yay lynx
-yay urlview
-yay xdg-open-server
+yay -S yazi
+```
+
+### NeoMutt
+
+```bash
+yay -S neomutt mutt-wizard isync lynx urlview xdg-open-server
+
+# Configuração da conta de email
 mw -l # Se houver uma conta e, ao tentar entrar dar erro, executar os comandos abaixo
 mw -d # delete a conta
 gpg --full-generate-key # seguir o passo a passo
 pass init $EMAIL # onde $EMAIL é o email da sua conta.
-mw -a $EMAIL # siga o passo a passo e a conta deve estar configurada.
+mw -a $EMAIL # siga o passo a passo para configurar a conta.
 # Talvez seja necessário entrar com neomutt e executar `i1` para entrar na pasta.
 ```
 
+### WezTerm
 
-7. Wezterm
+```bash
+yay -S wezterm
+yay -S zoxide # para melhorar a navegação entre diretórios
+yay -S eza # para substituir o comando ls com mais recursos
 
-`yay wezterm`
-`yay zoxide` -> quando iniciamos o Wezterm ele já inicia no Fish. Para evitar mensagens de erros, vamos instalar já.
-`yay eza` -> para rodar o *lla* corretamente
+# Configurar o tema do Fish com Tide
+fish -c "tide configure"
+```
 
-Para configurar o fish com o `tide` basta rodar o seguinte: `tide configure`
+### Tmux
 
-8. Tmux
+```bash
+sudo pacman -S tmux
 
-`yay tmux`
+# Gerenciador de plugins para Tmux
+rm -rf ~/.tmux/plugins/tpm ~/.tmux/plugins/tmux-powerline
+git clone https://github.com/tmux-plugins/tpm ~/.dotfiles/.tmux/plugins/tpm/
 
-Para configurar o tmux do jeito que eu gosto, preciso instalar o tmux-pluging-manager
-Tive de apagar a pasta ~/.tmux/plugins/tpm e a pasta do ~/.tmux/plugins/tmux-powerline.
+# Iniciar tmux e instalar plugins
+# Pressione <prefix>r para recarregar configurações
+# Pressione <prefix>I para instalar plugins
+```
 
-Reinstalei o `tpm` via: `git clone https://github.com/tmux-plugings/tpm ~/.dotfiles/.tmux/plugins/tpm/`
-Iniciei o tmux e rodei um `<prefix>r` para recarregar as configurações, e depois `<prefix>I` para instalar os plugins.
-
-9. Configurações Git
+### Configurações Git
 
 ```bash
 git config --global user.name "Gabriel Coelho Soares"
 git config --global user.email gbcoe@outlook.com.br
 git config --global core.editor nvim
+
+# Gerar e configurar chave SSH
 ssh-keygen -t ed25519 -C "gbcoe@outlook.com.br"
-cat ~/.ssh/id_ed25519.pub # copiar o conteúdo e adicionar no Github.
+cat ~/.ssh/id_ed25519.pub # copiar o conteúdo e adicionar no Github
 ```
 
-10. Development tools
-
-**Java**
-`curl -s "https://get.sdkman.io" | bash` <- SDKMan!
-
-Abra uma nova `pane` no tmux e digite:
-
-`sdk install java 21.0.6-amzn` <- Corretto versão 21.
-`sdk install maven` <- maven
-
-**Node**
-`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash` <- Node Version Manager
-`nvm install lts`
-`nvm use lts`
-`npm install -g live-server`
-
-**Rust**
+### Zk
 
 ```bash
-yay rustup
+# Instalar o zk (gerenciador de notas)
+yay -S zk
+
+# O plugin nvim-zk já está configurado nos dotfiles
+# Para inicializar um novo diretório de notas:
+zk init ~/caminho/para/suas/notas
+
+# Configuração básica do zk (opcional)
+zk config --dir ~/caminho/para/suas/notas
+```
+
+### Calcurse
+
+```bash
+# Instalar o calendário/agenda Calcurse
+yay -S calcurse
+
+# Iniciar e configurar
+calcurse
+
+# Os arquivos de configuração já estão nos dotfiles
+# Para importar calendários externos:
+calcurse-import
+```
+
+## Development Tools
+
+### Java
+
+```bash
+# Instalar SDKMAN para gerenciar versões do Java
+curl -s "https://get.sdkman.io" | bash
+
+# Em um novo terminal
+sdk install java 21.0.6-amzn # Amazon Corretto versão 21
+sdk install maven # Instalar Maven
+```
+
+### Node
+
+```bash
+# Instalar NVM (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+
+# Instalar Node.js LTS
+nvm install lts
+nvm use lts
+
+# Pacotes globais úteis
+npm install -g live-server
+```
+
+### Rust
+
+```bash
+# Instalar Rustup e configurar Rust
+yay -S rustup
 rustup install stable
 rustup default stable
 fisher install usami-k/fish-rustup
 ```
 
-----------
-
 ## Diretórios
 
 ```bash
-# em ~/
-mkdir 1.\ Projects/ 0.\ Inbox/ 2.\ Areas/ 3.\ Resources/ 4.\ Archives/
+# Criar estrutura de diretórios PARA pessoal
+mkdir -p ~/1.\ Projects/ ~/0.\ Inbox/ ~/2.\ Areas/ ~/3.\ Resources/ ~/4.\ Archives/
+
+# Mover diretórios padrão para Resources
 mv -t ~/3.\ Resources/ ~/Documentos/ ~/Downloads/ ~/Modelos/ ~/Vídeos/ ~/Imagens/ ~/Músicas/ ~/Público/ ~/Área\ de\ trabalho/
+
+# Clonar repositórios importantes
 cd ~/0.\ Inbox/
 git clone git@github.com:GabrielCoelho/full-sb.git mybrain
 git clone git@github.com:GabrielCoelho/GabrielCoelho.github.io.git public_notes
 git clone git@github.com:GabrielCoelho/GabrielCoelho.git
-yay onedriver # para conectar com a nuvem (Salvar em áreas)
-```
 
-----------
+# Para sincronização com OneDrive (opcional)
+yay -S onedriver # para conectar com a nuvem (salvar em áreas)
+```
 
 ## Outros Aplicativos
 
 ```bash
-yay morgen-bin
-yay mgba-qt
-yay espanso-x11
-yay obsidian
-z dot # cd ~/.dotfiles/
+# Aplicativos adicionais úteis
+yay -S morgen-bin # Calendário
+yay -S mgba-qt # Emulador
+yay -S espanso-x11 # Expansor de texto
+yay -S obsidian # Notas
+
+# Configurar espanso
+cd ~/.dotfiles/
 cd .config/espanso/match
 ls
-# Se já houver arquivos, basta dar um:
+# Se já houver arquivos, basta atualizar:
 git fetch && git pull # ou gfp
-# Se não, precisará clonar/adicionar submodulo
-
+# Se não houver, adicionar submódulo:
+git submodule add https://github.com/GabrielCoelho/espanso-matches.git .config/espanso/match
 ```
+
+## Adicionando o Repositório Dotfiles
+
+Se você ainda não limpou as pastas de configuração, aqui estão os comandos para preparar seu sistema:
+
+```bash
+# Neovim
+sudo rm -rf ~/.config/nvim/
+
+# Fish
+sudo rm -rf ~/.config/fish/
+
+# i3wm
+sudo rm -rf ~/.config/i3/
+sudo rm -rf ~/.config/i3status/
+
+# WezTerm
+rm ~/.wezterm.lua
+
+# Clonar e aplicar dotfiles
+cd ~ && git clone https://github.com/GabrielCoelho/dotfiles .dotfiles
+cd ~/.dotfiles/ && stow .
+```
+
+## Configuração Final do Tmux-Powerline
+
+Para configurar corretamente o tema do Tmux-Powerline:
+
+```bash
+# Iniciar uma sessão tmux
+tmux
+
+# Instalar plugins 
+# Pressione <prefix>+I para instalar todos os plugins
+
+# Para aplicar o tema Gruvbox ao tmux-powerline
+sudo cp ~/.dotfiles/.config/tmux-powerline/themes/gruvbox.sh ~/.tmux/plugins/tmux-powerline/themes/default.sh
+
+# Resetar o tmux com o prefixo + r
+```
+
+Após seguir todos estes passos, você terá um ambiente de desenvolvimento completamente configurado com todas as ferramentas necessárias.
