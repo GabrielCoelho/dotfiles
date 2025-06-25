@@ -626,3 +626,6 @@ exec --no-startup-id tmux new -d -s main -n 󰧑
 # exec --no-startup-id sleep 1 && tmux neww -n configs
 # exec --no-startup-id sleep 1 && tmux neww -n dev
 # exec --no-startup-id sleep 1 && tmux neww -n yazi
+
+# Mount Google Drive no startup
+exec --no-startup-id /usr/local/bin/mount-gdrive.sh

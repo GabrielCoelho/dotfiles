@@ -56,6 +56,9 @@ alias gf "git fetch"
 alias gfp "git pull"
 alias gst "git status -sb"
 alias lg "lazygit"
+# Google Drive aliases
+alias gdrive-status='df -h | grep gdrive'
+alias gdrive-remount='fusermount -u ~/2.\ Areas/gdrive && /usr/local/bin/mount-gdrive.sh'
 
 #### TMUX
 alias init "~/.tmux-sessions.sh && tmux a"
