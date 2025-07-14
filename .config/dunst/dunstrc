@@ -6,7 +6,7 @@
     ### Display ###
     monitor = 2
 
-    follow = none
+    follow = keyboard
 
     ### Geometry ###
     width = 300
