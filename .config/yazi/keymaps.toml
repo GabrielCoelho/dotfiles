@@ -1,0 +1,20 @@
+[mgr]
+keymap = [
+  {
+    on   = [ "g", "d" ],
+    run  = "cd ~/3. Resources/Downloads/",
+    desc = "Cd to Downloads"
+  },
+  {
+    on   = [ "g", "i" ],
+    run  = "cd ~/3. Resources/Imagens/",
+    desc = "Cd to Images"
+  },
+  {
+    on   = [ "g", "c" ],
+    run  = "cd ~/.dotfiles/",
+    desc = "Cd to Dotfiles"
+  },
+]
+
+
