@@ -48,14 +48,14 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 2
+new_window pixel 1
 
 # thin borders
 # hide_edge_borders both
 
 # Set inner/outer gaps
 gaps inner 9
-gaps outer 5
+gaps outer 8
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -453,7 +453,7 @@ exec --no-startup-id /usr/bin/dunst
 # autotiling script
 # https://github.com/nwg-piotr/autotiling
 # `yay -S autotiling ;) (it is in AUR)
-#exec_always --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
 exec --no-startup-id sleep 2 && wezterm
