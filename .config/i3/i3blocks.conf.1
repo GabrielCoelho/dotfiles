@@ -37,7 +37,7 @@
 # Global properties
 #
 # The top properties below are applied to every block, but can be overridden.
-separator=false
+separator=true
 markup=pango
 
 [terminal]
@@ -53,7 +53,7 @@ command=i3-msg -q exec zen-browser
 [files]
 full_text= 
 color=#a89984
-command=i3-msg -q exec thunar
+command=i3-msg -q exec nautilus
 
 [mail]
 full_text=
@@ -146,10 +146,9 @@ interval=1
 # see i3 config file
 # this needs xkblayout-state installed from the AUR:
 # https://aur.archlinux.org/packages/xkblayout-state-git
-[keyboard-layout]
-command=~/.config/i3/scripts/keyboard-layout
-color=#fe8019
-interval=2
+# [keyboard-layout]
+# command=~/.config/i3/scripts/keyboard-layout
+# interval=2
 #
 # [keybindings]
 # full_text=
@@ -175,12 +174,11 @@ interval=2
 # full_text=:
 # color=#ebdbb2
 # # Battery indicator
-# [battery]
-# command=~/.config/i3/scripts/battery2
+[battery]
+command=~/.config/i3/scripts/battery2
 # for alternative battery script  change to battery1
 # change this to battery-pinebook-pro if you are running on pinebook-pro
-# label=
-# interval=30
+interval=30
 
 [shutdown_menu]
 full_text=   :
