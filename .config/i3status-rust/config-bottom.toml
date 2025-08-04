@@ -13,12 +13,6 @@ full = " $title.str(max_w:50) |"
 short = " $title.str(max_w:10) |"
 
 [[block]]
-block = "battery"
-format = " $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
-device = "DisplayDevice"
-driver = "upower"
-
-[[block]]
 block = "net"
 format = " $icon {$ssid |Wired connection}  $ip "
 
