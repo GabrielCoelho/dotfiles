@@ -48,14 +48,14 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 2
+new_window pixel 1
 
 # thin borders
-# hide_edge_borders both
+hide_edge_borders both
 
 # Set inner/outer gaps
 gaps inner 9
-gaps outer 5
+gaps outer 8
 
 # show window title bars (not officially supported with i3gaps)
 #default_border normal
@@ -579,30 +579,24 @@ strip_workspace_numbers yes
 # https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 # #08052be6 --> e6=90%
 
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
+bar {
+		font pango: MonaspiceXe Nerd Font 10
+		status_command i3status-rs ~/.config/i3status-rust/config-bottom.toml
+    position bottom
+    workspace_buttons no
+    binding_mode_indicator no
+    i3bar_command i3bar --transparency
+    colors {
+      separator          $purple
+      background         $topbartransparency
+      statusline         $white
+      # border 		        bg		txt		indicator
+      focused_workspace	$mediumgrey	   	$gray		$darkgrey	$purple
+      active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+      inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+      urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+	}
+}
 
 #####################################
 # Application menu handled by rofi: #
