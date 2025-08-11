@@ -547,7 +547,7 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 # (plus the system information i3status finds out, if available)
 bar {
 		font pango: MonaspiceKr Nerd Font 11
-		status_command i3blocks -c ~/.config/i3/i3blocks.conf
+		status_command i3status-rs ~/.config/i3status-rust/config.toml
 	    	position top
 	    	i3bar_command i3bar --transparency
 # it could be that you have no primary display set: set one (xrandr --output <output> --primary)

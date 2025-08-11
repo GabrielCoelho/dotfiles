@@ -27,10 +27,3 @@ block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%Y-%m-%d %H:%M') "
 
-[[block]]
-block = "battery"
-format = " $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
-device = "DisplayDevice"
-driver = "upower"
-
-

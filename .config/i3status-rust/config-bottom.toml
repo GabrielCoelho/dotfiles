@@ -9,7 +9,7 @@ icons = "material-nf"
 [[block]]
 block = "focused_window"
 [block.format]
-full = " $title.str(max_w:50) |"
+full = " $title.str |"
 short = " $title.str(max_w:10) |"
 
 [[block]]
@@ -31,10 +31,3 @@ click_temp = 3500
 block = "notify"
 format = " $icon {($notification_count.eng(w:1)) |}"
 
-[[block]]
-block = "backlight"
-device = "intel_backlight"
-
-[[block]]
-block = "kdeconnect"
-format = " $icon {$notif_icon |}{$network_icon$network_strength $network_type |}"
