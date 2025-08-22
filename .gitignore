@@ -1,5 +1,4 @@
 **/fish/fish_variables
 **/espanso/matches
 .clang-format
-.tmux/plugins/tmux-git-autofetch/
-.tmux/plugins/tmux-nerd-font-window-name/
+.tmux/plugins/
