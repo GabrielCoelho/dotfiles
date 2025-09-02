@@ -66,5 +66,5 @@ config.window_background_gradient = {
 -- config.window_background_image = ".bg_wez.jpg"
 config.window_background_opacity = 0.79
 -- Spawn a fish shell in login mode
-config.default_prog = { "/usr/bin/fish", "-l" }
+config.default_prog = { "/usr/bin/tmux", "attach" }
 return config

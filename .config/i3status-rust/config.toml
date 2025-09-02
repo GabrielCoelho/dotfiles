@@ -17,6 +17,28 @@ alert = 10.0
 format = " $icon root: $available.eng(w:2) "
 
 [[block]]
+block = "music"
+format = " $icon $volume_icon $combo $play $next| "
+seek_step_secs = 10
+[[block.click]]
+button = "up"
+action = "volume_up"
+[[block.click]]
+button = "down"
+action = "volume_down"
+[[block.click]]
+button = "forward"
+action = "seek_forward"
+[[block.click]]
+button = "back"
+action = "seek_backward"
+
+[[block]]
+block = "keyboard_layout"
+driver = "xkbevent"
+format = " $layout "
+
+[[block]]
 block = "sound"
 [[block.click]]
 button = "left"
