@@ -7,10 +7,21 @@ theme = "gruvbox-dark"
 icons = "material-nf"
 
 [[block]]
-block = "focused_window"
-[block.format]
-full = " $title.str |"
-short = " $title.str(max_w:10) |"
+block = "music"
+format = " $icon $volume_icon $combo $play $next| "
+seek_step_secs = 10
+[[block.click]]
+button = "up"
+action = "volume_up"
+[[block.click]]
+button = "down"
+action = "volume_down"
+[[block.click]]
+button = "forward"
+action = "seek_forward"
+[[block.click]]
+button = "back"
+action = "seek_backward"
 
 [[block]]
 block = "net"

@@ -7,6 +7,13 @@ theme = "gruvbox-dark"
 icons = "material-nf"
 
 [[block]]
+block = "focused_window"
+[block.format]
+full = " $title.str |"
+short = " $title.str(max_w:10) |"
+
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
@@ -15,23 +22,6 @@ interval = 20
 warning = 20.0
 alert = 10.0
 format = " $icon root: $available.eng(w:2) "
-
-[[block]]
-block = "music"
-format = " $icon $volume_icon $combo $play $next| "
-seek_step_secs = 10
-[[block.click]]
-button = "up"
-action = "volume_up"
-[[block.click]]
-button = "down"
-action = "volume_down"
-[[block.click]]
-button = "forward"
-action = "seek_forward"
-[[block.click]]
-button = "back"
-action = "seek_backward"
 
 [[block]]
 block = "keyboard_layout"
