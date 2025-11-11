@@ -123,3 +123,30 @@ map("n", "<leader>gg", "<cmd>LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Oil.nvim
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Mapeamentos VimTeX
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tex",
+	callback = function()
+		-- Compilar
+		vim.keymap.set("n", "<leader>ll", "<cmd>VimtexCompile<CR>", { desc = "LaTeX: Compilar" })
+
+		-- Visualizar PDF
+		vim.keymap.set("n", "<leader>lv", "<cmd>VimtexView<CR>", { desc = "LaTeX: Ver PDF" })
+
+		-- Limpar arquivos auxiliares
+		vim.keymap.set("n", "<leader>lc", "<cmd>VimtexClean<CR>", { desc = "LaTeX: Limpar" })
+
+		-- Status da compilação
+		vim.keymap.set("n", "<leader>ls", "<cmd>VimtexStatus<CR>", { desc = "LaTeX: Status" })
+
+		-- Parar compilação
+		vim.keymap.set("n", "<leader>lk", "<cmd>VimtexStop<CR>", { desc = "LaTeX: Parar" })
+
+		-- Informações
+		vim.keymap.set("n", "<leader>li", "<cmd>VimtexInfo<CR>", { desc = "LaTeX: Info" })
+
+		-- TOC (Table of Contents)
+		vim.keymap.set("n", "<leader>lt", "<cmd>VimtexTocToggle<CR>", { desc = "LaTeX: TOC" })
+	end,
+})
