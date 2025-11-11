@@ -396,7 +396,7 @@ assign [class="TelegramDesktop"] $ws5
 # exec_always --no-startup-id picom -b
 #
 # for custom config:
-exec_always --no-startup-id picom --config  ~/.config/picom.conf
+exec_always --no-startup-id picom -CGb --config  ~/.config/picom.conf
 
 #############################################
 # autostart applications/services on login: #
@@ -432,7 +432,7 @@ exec --no-startup-id ~/.screenlayout/maestro.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && wal -i /usr/share/endeavouros/backgrounds/totoro-sunf.png
+exec --no-startup-id sleep 1 && wal -i /usr/share/endeavouros/backgrounds/distort7.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480
