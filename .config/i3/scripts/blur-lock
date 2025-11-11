@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER="/home/gabriel/3. Resources/Imagens/gruv-limits.png"
+WALLPAPER="/usr/share/endeavouros/backgrounds/login.png"
 #!/usr/bin/env bash
 
 alpha='dd'
