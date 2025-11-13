@@ -48,7 +48,7 @@ workspace_layout default
 ##############################
 
 #border indicator on windows:
-new_window pixel 1
+new_window pixel 3
 
 # thin borders
 hide_edge_borders both
@@ -336,11 +336,11 @@ bindsym $mod+Shift+s exec --no-startup-id scrot -s ~/3.\ Resources/Imagens/scree
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
-set $ws2 "2:"
+set $ws2 "2:󰧑"
 set $ws3 "3:"
-set $ws4 "4:󰗰"
-set $ws5 "5:"
-set $ws6 "6:󰧑"
+set $ws4 "4:"
+set $ws5 "5:󰗰"
+set $ws6 "6:"
 set $ws7 "7:󱎓"
 set $ws8 "8:󰢹"
 set $ws9 "9:󰿎"
@@ -534,7 +534,7 @@ set $topbartransparency #2828284D
 
 # define colors for windows:
 #class		        	border		bground		text		indicator	child_border
-client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
+client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$yellowbrown
 client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
 client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
 client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown

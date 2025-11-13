@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-WALLPAPER="/usr/share/endeavouros/backgrounds/login.png"
+WALLPAPER="/usr/share/endeavouros/backgrounds/explore.jpg"
 #!/usr/bin/env bash
 
 alpha='dd'
@@ -24,17 +24,17 @@ i3lock \
   --ringwrong-color=$red$alpha \
   --ringver-color=$green$alpha \
   --ringwrong-color=$red$alpha \
-  --ring-color=$blue$alpha \
+  --ring-color=$magenta$alpha \
   --line-uses-ring \
-  --keyhl-color=$magenta$alpha \
+  --keyhl-color=$blue$alpha \
   --bshl-color=$orange$alpha \
   --separator-color=$selection$alpha \
   --verif-color=$green \
   --wrong-color=$red \
   --modif-color=$red \
-  --layout-color=$blue \
-  --date-color=$blue \
-  --time-color=$blue \
+  --layout-color=$orange \
+  --date-color=$orange \
+  --time-color=$orange \
   --clock \
   --indicator \
   --time-str="%H:%M:%S" \
