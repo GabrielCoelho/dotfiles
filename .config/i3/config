@@ -323,9 +323,22 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 ## App shortcuts
 # bindsym $mod+w exec --no-startup-id /usr/bin/firefox
 # bindsym $mod+n exec --no-startup-id /usr/bin/thunar
-bindsym Print exec --no-startup-id scrot ~/3.\ Resources/Imagens/screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/3. Resources/Imagens/screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
-bindsym $mod+Shift+s exec --no-startup-id scrot -s ~/3.\ Resources/Imagens/screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/3. Resources/Imagens/screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+# bindsym Print exec --no-startup-id scrot ~/3.\ Resources/Imagens/screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/3. Resources/Imagens/screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+# bindsym $mod+Shift+s exec --no-startup-id scrot -s ~/3.\ Resources/Imagens/screenshots/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/3. Resources/Imagens/screenshots/$(date +"%Y-%m-%d-%T")-screenshot.png"
+# Print Screen = tela inteira
+bindsym Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh full
 
+# $mod+Shift+s = área selecionada
+bindsym $mod+Shift+s exec --no-startup-id ~/.config/i3/scripts/screenshot.sh area
+
+# $mod+Shift+w = janela ativa
+bindsym $mod+Shift+w exec --no-startup-id ~/.config/i3/scripts/screenshot.sh window
+
+# $mod+Print = com delay de 3 segundos
+bindsym $mod+Print exec --no-startup-id ~/.config/i3/scripts/screenshot.sh delay
+
+
+#
 # Power Profiles menu switcher (rofi)
 # bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 
