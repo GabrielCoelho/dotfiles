@@ -177,6 +177,59 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "mousemove" {
+    # Movimento fluido - teclas principais
+    bindsym --release comma exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym comma exec ~/.config/i3/scripts/mouse_move.sh up
+
+    bindsym --release a exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym a exec ~/.config/i3/scripts/mouse_move.sh left
+
+    bindsym --release o exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym o exec ~/.config/i3/scripts/mouse_move.sh down
+
+    bindsym --release e exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym e exec ~/.config/i3/scripts/mouse_move.sh right
+
+    # Movimento fluido - arrow keys
+    bindsym --release Up exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym Up exec ~/.config/i3/scripts/mouse_move.sh up
+
+    bindsym --release Left exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym Left exec ~/.config/i3/scripts/mouse_move.sh left
+
+    bindsym --release Down exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym Down exec ~/.config/i3/scripts/mouse_move.sh down
+
+    bindsym --release Right exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym Right exec ~/.config/i3/scripts/mouse_move.sh right
+
+    # Movimentos diagonais
+    bindsym --release comma+a exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym comma+a exec ~/.config/i3/scripts/mouse_move.sh up-left
+
+    bindsym --release comma+e exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym comma+e exec ~/.config/i3/scripts/mouse_move.sh up-right
+
+    bindsym --release o+a exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym o+a exec ~/.config/i3/scripts/mouse_move.sh down-left
+
+    bindsym --release o+e exec ~/.config/i3/scripts/mouse_move.sh stop
+    bindsym o+e exec ~/.config/i3/scripts/mouse_move.sh down-right
+
+    # Cliques do mouse
+    bindsym h exec xdotool click 1
+    bindsym t exec xdotool click 2
+    bindsym n exec xdotool click 3
+
+    # Voltar ao modo normal
+    bindsym Return exec ~/.config/i3/scripts/mouse_move.sh stop, mode "default"
+    bindsym Escape exec ~/.config/i3/scripts/mouse_move.sh stop, mode "default"
+    bindsym $mod+w exec ~/.config/i3/scripts/mouse_move.sh stop, mode "default"
+}
+
+bindsym $mod+w mode "mousemove"
+
 ######################################
 # keybindings for different actions: #
 ######################################
