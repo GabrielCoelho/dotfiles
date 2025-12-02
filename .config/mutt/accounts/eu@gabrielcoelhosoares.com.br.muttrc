@@ -1,6 +1,6 @@
 # vim: filetype=neomuttrc
 # muttrc file for account eu@gabrielcoelhosoares.com.br
-set realname = "Gabriel"
+set realname = "eu"
 set from = "eu@gabrielcoelhosoares.com.br"
 set sendmail = "msmtp -a eu@gabrielcoelhosoares.com.br"
 alias me eu <eu@gabrielcoelhosoares.com.br>
@@ -19,4 +19,4 @@ macro index o "<shell-escape>mw -y eu@gabrielcoelhosoares.com.br<enter>" "run mb
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a eu@gabrielcoelhosoares.com.br<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a eu@gabrielcoelhosoares.com.br<enter>" "confirm GPG publication"
 
-mailboxes "=INBOX.Archives.2025" "=INBOX.Archive" "=INBOX.Trash" "=INBOX.Junk" "=INBOX.Sent" "=INBOX.Drafts"
+mailboxes "=INBOX.Trash" "=INBOX.Sent" "=INBOX.Junk" "=INBOX.Drafts" "=INBOX.Archives.2025" "=INBOX.Archive"
