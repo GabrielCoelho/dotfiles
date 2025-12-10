@@ -4,6 +4,8 @@ After=network-online.target
 
 [Service]
 Type=oneshot
+Environment="Display=:0"
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus"
 ExecStart=/home/gabriel/.local/bin/sync-obsidian.sh
 
 [Install]
