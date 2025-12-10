@@ -1,0 +1,10 @@
+[Unit]
+Description=Obsidian Vault Sync
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/gabriel/.local/bin/sync-obsidian.sh
+
+[Install]
+WantedBy=default.target
