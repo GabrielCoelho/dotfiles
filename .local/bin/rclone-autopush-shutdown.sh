@@ -1,23 +1,37 @@
 #!/bin/bash
 
 # =============================================================================
-# SCRIPT: RClone Auto-Sync com Shutdown Automático
+# SCRIPT: RClone Auto-Sync Virtus com Shutdown Automático
 # AUTOR: Gabriel Coelho Soares
 # DESCRIÇÃO: Automatiza sincronização do Google Drive antes de desligar o PC
+# VERSÃO: 2.0 - Adaptado para estrutura Johnny Decimal
 # =============================================================================
 
 # -----------------------------------------------------------------------------
 # CONFIGURAÇÕES PRINCIPAIS
 # -----------------------------------------------------------------------------
 
-# Caminho local do vault
-LOCAL_PATH="$HOME/0. Inbox/mybrain"
+# Caminho base local
+BASE_PATH="$HOME/Virtus"
 
-# Caminho remoto no Google Drive
-REMOTE_PATH="gdrive:0. Inbox/mybrain"
+# Pastas para sincronizar
+PASTAS_SYNC=(
+  ".obsidian"
+  "00-09 System_Meta"
+  "10-19 Personal/11 Myself"
+  "10-19 Personal/15 Finance"
+  "20-29 Knowledge"
+  "30-39 Work/31 Career"
+  "30-39 Work/32 Job Applications"
+  "30-39 Work/35 Maestro Sistemas"
+  "40-49 Software/43 Scripts"
+  "80-89 Media/83 Screenshots"
+  "80-89 Media/84 Movies/84.01 Screen Recorders"
+  "80-89 Media/89 Templates"
+)
 
 # Arquivo de log
-LOG_FILE="$HOME/.local/share/rclone/obsidian-sync.log"
+LOG_FILE="$HOME/.local/share/rclone/virtus-sync.log"
 
 # Intervalo entre notificações de progresso (em segundos)
 INTERVALO_PROGRESSO=8
@@ -63,12 +77,12 @@ countdown_desligamento() {
 # VERIFICAÇÕES INICIAIS
 # -----------------------------------------------------------------------------
 
-# Verificar se a pasta existe
-if [[ ! -d "$LOCAL_PATH" ]]; then
+# Verificar se a pasta base existe
+if [[ ! -d "$BASE_PATH" ]]; then
     enviar_notificacao "critical" "$TIMEOUT_LONGO" "Erro - RClone Sync" \
-        "❌ Pasta não encontrada:\n$LOCAL_PATH" "dialog-error"
+        "❌ Pasta Virtus não encontrada:\n$BASE_PATH" "dialog-error"
 
-    countdown_desligamento 3 "Pasta de anotações não encontrada"
+    countdown_desligamento 3 "Pasta Virtus não encontrada"
     systemctl poweroff
     exit 1
 fi
@@ -91,74 +105,77 @@ mkdir -p "$(dirname "$LOG_FILE")"
 # -----------------------------------------------------------------------------
 
 enviar_notificacao "low" "$TIMEOUT_RAPIDO" "RClone Sync" \
-    "🔄 Iniciando sincronização com Google Drive..." "folder-sync"
+    "🔄 Iniciando sincronização de ${#PASTAS_SYNC[@]} pastas..." "folder-sync"
 
-log_debug "Iniciando sincronização de shutdown"
+log_debug "Iniciando sincronização de shutdown - ${#PASTAS_SYNC[@]} pastas"
 
 # -----------------------------------------------------------------------------
 # PROCESSO DE SINCRONIZAÇÃO
 # -----------------------------------------------------------------------------
 
-# Função para mostrar progresso durante sync longo
-mostrar_progresso() {
-    local contador=0
-    while kill -0 $1 2>/dev/null; do
-        sleep $INTERVALO_PROGRESSO
-        contador=$((contador + 1))
+TOTAL_PASTAS=${#PASTAS_SYNC[@]}
+PASTAS_SUCESSO=0
+PASTAS_ERRO=0
+PASTAS_CONFLITO=0
 
-        enviar_notificacao "low" "$TIMEOUT_RAPIDO" "RClone Sync" \
-            "📤 Sincronizando... (${contador}x${INTERVALO_PROGRESSO}s)" "folder-sync"
-    done
-}
+for pasta in "${PASTAS_SYNC[@]}"; do
+    PASTA_ATUAL=$((PASTAS_SUCESSO + PASTAS_ERRO + PASTAS_CONFLITO + 1))
 
-# Executar bisync em background
-rclone bisync "$LOCAL_PATH" "$REMOTE_PATH" \
-    --resilient \
-    --recover \
-    --create-empty-src-dirs \
-    --verbose \
-    >> "$LOG_FILE" 2>&1 &
+    enviar_notificacao "low" "$TIMEOUT_RAPIDO" "RClone Sync" \
+        "📤 Sincronizando [$PASTA_ATUAL/$TOTAL_PASTAS]: $(basename "$pasta")" "folder-sync"
 
-PID_SYNC=$!
+    log_debug "Sincronizando: $pasta"
 
-# Iniciar monitoramento de progresso
-mostrar_progresso $PID_SYNC &
-PID_PROGRESSO=$!
+    # Executar bisync
+    rclone bisync "$BASE_PATH/$pasta" "gdrive:$pasta" \
+        --resilient \
+        --recover \
+        --create-empty-src-dirs \
+        --max-lock 5m \
+        --verbose \
+        >> "$LOG_FILE" 2>&1
 
-# Aguardar o sync terminar
-wait $PID_SYNC
-RESULTADO_SYNC=$?
+    RESULTADO=$?
 
-# Parar o monitoramento de progresso
-kill $PID_PROGRESSO 2>/dev/null || true
+    if [[ $RESULTADO -eq 0 ]]; then
+        PASTAS_SUCESSO=$((PASTAS_SUCESSO + 1))
+        log_debug "✅ Sucesso: $pasta"
+    elif [[ $RESULTADO -eq 2 ]]; then
+        PASTAS_CONFLITO=$((PASTAS_CONFLITO + 1))
+        log_debug "⚠️ Conflito: $pasta"
+    else
+        PASTAS_ERRO=$((PASTAS_ERRO + 1))
+        log_debug "❌ Erro: $pasta (código: $RESULTADO)"
+    fi
+done
 
 # -----------------------------------------------------------------------------
 # VERIFICAR RESULTADO E FINALIZAR
 # -----------------------------------------------------------------------------
 
-if [[ $RESULTADO_SYNC -eq 0 ]]; then
-    # Sync bem-sucedido
+if [[ $PASTAS_ERRO -eq 0 && $PASTAS_CONFLITO -eq 0 ]]; then
+    # Tudo sincronizado com sucesso
     enviar_notificacao "normal" "$TIMEOUT_NORMAL" "RClone Sync" \
-        "✅ Anotações sincronizadas com Google Drive!\n\nHorário: $(date '+%H:%M:%S')" "emblem-default"
+        "✅ Todas as pastas sincronizadas!\n\n$PASTAS_SUCESSO/$TOTAL_PASTAS completas\nHorário: $(date '+%H:%M:%S')" "emblem-default"
 
-    log_debug "Sincronização concluída com sucesso"
+    log_debug "Sincronização completa: $PASTAS_SUCESSO/$TOTAL_PASTAS"
     countdown_desligamento $COUNTDOWN_SEGUNDOS "✅ Sincronização completa!"
 
-elif [[ $RESULTADO_SYNC -eq 2 ]]; then
+elif [[ $PASTAS_CONFLITO -gt 0 ]]; then
     # Conflitos detectados
     enviar_notificacao "critical" "$TIMEOUT_LONGO" "RClone Sync" \
-        "⚠️ Conflitos detectados!\n\nArquivos .conflict criados.\nResolva manualmente após reiniciar." "dialog-warning"
+        "⚠️ Conflitos detectados!\n\n✅ Sucesso: $PASTAS_SUCESSO\n⚠️ Conflitos: $PASTAS_CONFLITO\n❌ Erros: $PASTAS_ERRO\n\nResolva manualmente após reiniciar." "dialog-warning"
 
-    log_debug "Conflitos detectados durante sincronização"
+    log_debug "Conflitos detectados - Sucesso: $PASTAS_SUCESSO, Conflitos: $PASTAS_CONFLITO, Erros: $PASTAS_ERRO"
     countdown_desligamento 7 "⚠️ Conflitos detectados (verifique após reiniciar)"
 
 else
-    # Sync falhou
+    # Erros na sincronização
     enviar_notificacao "critical" "$TIMEOUT_LONGO" "RClone Sync" \
-        "❌ Falha na sincronização!\n\nVerifique conexão de internet.\nVerifique o log para detalhes." "dialog-error"
+        "❌ Falhas na sincronização!\n\n✅ Sucesso: $PASTAS_SUCESSO\n❌ Erros: $PASTAS_ERRO\n\nVerifique conexão e log." "dialog-error"
 
-    log_debug "Erro na sincronização (código: $RESULTADO_SYNC)"
-    countdown_desligamento 7 "❌ Falha na sincronização"
+    log_debug "Erros na sincronização - Sucesso: $PASTAS_SUCESSO, Erros: $PASTAS_ERRO"
+    countdown_desligamento 7 "❌ Falhas na sincronização"
 fi
 
 # -----------------------------------------------------------------------------
