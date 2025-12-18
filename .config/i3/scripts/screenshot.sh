@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Diretório de destino
-DIR="$HOME/3. Resources/Imagens/screenshots"
+DIR="$HOME/Virtus/80-89 Media/83 Screenshots/"
 mkdir -p "$DIR"
 
 # Nome do arquivo com timestamp
