@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync Virtus Johnny Decimal every 30 minutes
+Requires=virtus-bisync.service
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+Unit=virtus-bisync.service
+
+[Install]
+WantedBy=timers.target

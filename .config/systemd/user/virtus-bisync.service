@@ -1,0 +1,23 @@
+[Unit]
+Description=Virtus Johnny Decimal Bisync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Bisync para cada pasta específica
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/.obsidian" "gdrive:.obsidian" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/00-09 System_Meta" "gdrive:00-09 System_Meta" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/10-19 Personal/11 Myself" "gdrive:10-19 Personal/11 Myself" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/10-19 Personal/15 Finance" "gdrive:10-19 Personal/15 Finance" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/20-29 Knowledge" "gdrive:20-29 Knowledge" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/30-39 Work/31 Career" "gdrive:30-39 Work/31 Career" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/30-39 Work/32 Job Applications" "gdrive:30-39 Work/32 Job Applications" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/30-39 Work/35 Maestro Sistemas" "gdrive:30-39 Work/35 Maestro Sistemas" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/40-49 Software/43 Scripts" "gdrive:40-49 Software/43 Scripts" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/80-89 Media/83 Screenshots" "gdrive:80-89 Media/83 Screenshots" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/80-89 Media/84 Movies/84.01 Screen Recorders" "gdrive:80-89 Media/84 Movies/84.01 Screen Recorders" --verbose --resilient --recover --max-lock 5m
+ExecStart=/usr/bin/rclone bisync "%h/Virtus/80-89 Media/89 Templates" "gdrive:80-89 Media/89 Templates" --verbose --resilient --recover --max-lock 5m
+
+[Install]
+WantedBy=default.target
