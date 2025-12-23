@@ -76,6 +76,8 @@ else
     end
 end
 # <<< conda initialize <<<
+## Rapid JDex access
+alias h "z Virtus"
 
 
 # NVM start
