@@ -8,7 +8,7 @@
 XDG_DESKTOP_DIR="$HOME/Virtus/00-09 System_Meta/01 Inbox/"
 XDG_DOWNLOAD_DIR="$HOME/Virtus/00-09 System_Meta/01 Inbox/"
 XDG_TEMPLATES_DIR="$HOME/Virtus/80-89 Media/89 Templates/"
-# XDG_PUBLICSHARE_DIR="$HOME/Virtus/"
+XDG_PUBLICSHARE_DIR="$HOME/Virtus/00-09 System_Meta/01 Inbox/"
 XDG_DOCUMENTS_DIR="$HOME/Virtus/00-09 System_Meta/01 Inbox/"
 XDG_MUSIC_DIR="$HOME/Virtus/80-89 Media/88 Music/"
 XDG_PICTURES_DIR="$HOME/Virtus/80-89 Media/81 Photos/"
